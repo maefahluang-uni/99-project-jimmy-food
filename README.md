@@ -1,6 +1,6 @@
-Jimmy Food
+# Jimmy Food
 
-**Member**
+**Member's name**
 >* 6531503018 Chayapon Nualklub 
 >* 6531503048 Poramet Somboonchai
 >* 6531503050 Praipha Suken
