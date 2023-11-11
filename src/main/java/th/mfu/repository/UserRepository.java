@@ -1,14 +1,13 @@
 package th.mfu.repository;
 
-import org.apache.catalina.User;
+import java.util.List;
 
-public class UserRepository {
-
-    public void save(User user) {
-    }
 import org.springframework.data.repository.CrudRepository;
 
+import th.mfu.domain.*;
+
 public interface UserRepository extends CrudRepository<User, Long>{
+
+    void save(org.apache.catalina.User user);
     
-}
 }

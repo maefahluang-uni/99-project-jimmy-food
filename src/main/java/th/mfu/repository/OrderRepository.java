@@ -1,10 +1,10 @@
-package th.mfu;
+package th.mfu.repository;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import th.mfu.Domain.Order;
+import th.mfu.domain.*;
 
 public interface OrderRepository extends CrudRepository<Order, Long>{
 
