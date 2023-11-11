@@ -4,19 +4,19 @@
     --purple:#5d54a4;
     --text-color-1:#444;
     --text-color-2:#666;
-    --bg-color-1:#fff;
-    --bg-color-2:#eee;
+    --bg-color-1:#9D65CA;
+    --bg-color-2:#D788D7;
     --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
 }
 
 *{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', 'lilita-one';
     margin:0; padding:0;
     box-sizing: border-box;
     outline: none; border:none;
     text-decoration: none;
     text-transform: capitalize;
-    transition:all .2s linear;
+    transition:all .20s linear;
 }
 
 html{
@@ -44,10 +44,10 @@ body{
 }
 
 body.active{
-    --text-color-1:#fff;
+    --text-color-1:#333;
     --text-color-2:#eee;
-    --bg-color-1:#333;
-    --bg-color-2:#222;
+    --bg-color-1:#9D65CA;
+    --bg-color-2:#D788D7;
     --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.4);
 }
 
@@ -72,7 +72,7 @@ section{
     position: absolute;
     left: 0;
     z-index: -1;
-    background: var(--orange);
+    background: var(--purple);
     height: 100%;
     width: 100%;
     clip-path: polygon(0 90%, 100% 83%, 100% 100%, 0% 100%);
@@ -84,8 +84,8 @@ section{
     padding:.8rem 3rem;
     font-size: 1.7rem;
     color:#fff;
-    background:#ab6806;
-    border-radius: .5rem;
+    --bg-color-1:#9D65CA;
+    border-radius: .15rem;
     cursor: pointer;
 }
 
@@ -112,7 +112,7 @@ section{
 }
 
 .header .logo i{
-    color:var(--orange);
+    color:var(--purple);
 }
 
 .header .search-form{
@@ -142,7 +142,7 @@ section{
 }
 
 .header .search-form label:hover{
-    color:var(--orange);
+    color:var(--purple);
 }
 
 .header .icons div{
@@ -159,8 +159,8 @@ section{
 }
 
 .header .icons div:hover{
-    color:#fff;
-    background:var(--orange);
+    color:#0f0f0f;
+    background:var(--purple);
 }
 
 #search-btn{
@@ -189,10 +189,10 @@ section{
     font-size: 1.5rem;
     color:var(--text-color-1);
     border-radius: .5rem;
-}
+} 
 
 .header .navbar a:hover{
-    color:var(--orange);
+    color:var(--purple);
     background:var(--bg-color-2);
     padding-left: 2rem;
 }
@@ -203,7 +203,9 @@ section{
     flex-wrap: wrap;
     gap:1.5rem;
     padding-top: 7rem;
-    background: #fff;
+    
+    background: #9D65CA
+
 }
 
 .home .image{
@@ -295,15 +297,15 @@ section{
     position: absolute;
     top:2.5rem; left:2.5rem;
     font-size: 2rem;
-    color:#fff;
-    background: rgba(0,0,0,.5);
+    color:#0a0a0a;
+    background: #9D65CA;
     border-radius: .5rem;
     font-weight: lighter;
     padding:.5rem 1.5rem;
 }
 
 .packages .box-container .box .image h3 i{
-    color:var(--orange);
+    color:var(--purple);
 }
 
 .packages .box-container .box .content{
@@ -421,7 +423,7 @@ section{
 }
 
 .swiper-pagination-bullet-active{
-    background: var(--orange);
+    background: var(--purple);
 }
 
 .contact form{
@@ -512,12 +514,12 @@ section{
 }
 
 .blogs .box-container .box .content .icons a:hover{
-    color:var(--orange);
+    color:var(--purple);
 }
 
 .blogs .box-container .box .content .icons a i{
     padding-right: .5rem;
-    color:var(--orange);
+    color:var(--purple);
 }
 
 .footer{
@@ -545,7 +547,7 @@ section{
 
 .footer .box-container .box a i{
     padding-right: .5rem;
-    color:var(--orange);
+    color:var(--purple);
 }
 
 .footer .box-container .box a:hover i{
@@ -563,7 +565,7 @@ section{
 }
 
 .footer .credit span{
-    color:var(--orange);
+    color:var(--purple);
 }
 
 
