@@ -20,22 +20,25 @@ public class User {
     private String name;
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private Order order;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Item> cart = new ArrayList<>();
 
-    // Constructors, getters, and setters...
+    // Constructors
 
+    // Default constructor
     public User() {
-        // Constructor เริ่มต้น
     }
 
+    // Parameterized constructor
     public User(String name, String password) {
         this.name = name;
         this.password = password;
     }
+
+    // Getters and setters
 
     public Long getId() {
         return id;
@@ -61,12 +64,12 @@ public class User {
         this.password = password;
     }
 
-    public Order getOrder() {
-        return order;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     public List<Item> getCart() {

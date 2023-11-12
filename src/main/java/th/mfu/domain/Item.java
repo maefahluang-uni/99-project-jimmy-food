@@ -19,18 +19,19 @@ public class Item {
     @ManyToOne(cascade = CascadeType.ALL)
     private Order order;
 
-    // Constructors, getters, and setters
+    // Constructors
 
+    // Default constructor
     public Item() {
-        // Default constructor
     }
 
+    // Parameterized constructor
     public Item(String name, Double price) {
         this.name = name;
         this.price = price;
     }
 
-    // Getters and setters...
+    // Getters and setters
 
     public Long getId() {
         return id;
@@ -62,5 +63,16 @@ public class Item {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    // toString method for better logging and debugging
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", order=" + order +
+                '}';
     }
 }

@@ -18,14 +18,26 @@ public class Restaurant {
     private String name;
     private String password;
 
-    // เพิ่มความสัมพันธ์กับ order และ order items
+    // Add relationships with orders and items
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Order> orders;
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Item> items;
 
-    // Generated Getters and Setters...
+    // Constructors
+
+    // Default constructor
+    public Restaurant() {
+    }
+
+    // Parameterized constructor
+    public Restaurant(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+
+    // Getters and setters
 
     public Long getId() {
         return id;

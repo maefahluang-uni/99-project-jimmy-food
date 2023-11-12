@@ -1,10 +1,7 @@
 package th.mfu.controller;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import javax.transaction.Transactional;
 
@@ -19,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import th.mfu.domain.Item;
 import th.mfu.domain.Order;
 import th.mfu.domain.OrderItem;
-import th.mfu.domain.User; // Adjusted import
+import th.mfu.domain.User;
 import th.mfu.repository.ItemRepository;
 import th.mfu.repository.OrderRepository;
 import th.mfu.repository.RestaurantRepository;
@@ -29,31 +26,31 @@ import th.mfu.repository.UserRepository;
 public class FoodController {
 
     @Autowired
-    UserRepository userRepo;
+    private UserRepository userRepo;
 
     @Autowired
-    RestaurantRepository restaurantRepo;
+    private RestaurantRepository restaurantRepo;
 
     @Autowired
-    ItemRepository itemRepo;
+    private ItemRepository itemRepo;
 
     @Autowired
-    OrderRepository orderRepo;
+    private OrderRepository orderRepo;
 
-    // User
+    // Buyer
 
     // to create User account
     @GetMapping("/add-buyer-signup")
-    public String addABuyerSignupForm(Model model) {
-        model.addAttribute("user", new User()); // Adjusted attribute name
-        return "buyer-signup-form"; // Adjusted return value
+    public String addBuyerSignupForm(Model model) {
+        model.addAttribute("buyer", new User());
+        return "buyer-signup-form";
     }
 
     // to save User account
     @PostMapping("/save-user")
-    public String saveUser(@ModelAttribute User user) {
+    public String saveUser(@ModelAttribute("buyer") User user) {
         userRepo.save(user);
-        return "redirect:/"; // Adjusted return value
+        return "redirect:/";
     }
 
     @Transactional
@@ -63,14 +60,14 @@ public class FoodController {
     @GetMapping("/buyer-homepage")
     public String listSellers(Model model) {
         model.addAttribute("sellers", restaurantRepo.findAll());
-        return "buyer-homepage"; // Adjusted return value
+        return "buyer-homepage";
     }
 
     // to show items of the selected shop
     @GetMapping("/show-items/{id}")
     public String showItems(@PathVariable Long id, Model model) {
         model.addAttribute("shopitems", itemRepo.findAllBySellerId(id));
-        return "shop-items"; // Adjusted return value
+        return "shop-items";
     }
 
     // to add items to the cart
@@ -82,7 +79,7 @@ public class FoodController {
             User user = /* Fetch user from session or database */;
             user.getCart().addAll(item);
         }
-        return "redirect:/"; // Adjusted return value
+        return "redirect:/";
     }
 
     // to view cart
@@ -92,7 +89,7 @@ public class FoodController {
         if (cartUser != null && cartUser.getCart() != null) {
             model.addAttribute("cartItems", cartUser.getCart());
         }
-        return "view-cart"; // Adjusted return value
+        return "view-cart";
     }
 
     // to make payment (to move items from cart to order)
@@ -116,37 +113,37 @@ public class FoodController {
             user.getCart().clear();
             userRepo.save(user);
         }
-        return "thank-you-page"; // Adjusted return value
+        return "thank-you-page";
     }
 
     // Seller
 
     // to create a seller account
     @GetMapping("/add-seller-signup")
-    public String addASellerSignupForm(Model model) {
-        model.addAttribute("seller", new Seller());
-        return "seller-signup-form"; // Adjusted return value
+    public String addSellerSignupForm(Model model) {
+        model.addAttribute("seller", new User()); // Assuming User can be both buyer and seller
+        return "seller-signup-form";
     }
 
     // to save the seller account
     @PostMapping("/save-seller")
-    public String saveSeller(@ModelAttribute Seller seller) {
+    public String saveSeller(@ModelAttribute("seller") User seller) {
         sellerRepo.save(seller);
-        return "redirect:/"; // Adjusted return value
+        return "redirect:/";
     }
 
     // to view the seller's shop menu
     @GetMapping("/view-shop-menu/{id}")
     public String viewShopMenu(@PathVariable Long id, Model model) {
         model.addAttribute("shopItems", itemRepo.findAllBySellerId(id));
-        return "view-shop-menu"; // Adjusted return value
+        return "view-shop-menu";
     }
 
     // to create a new item
     @GetMapping("/add-item")
     public String addItemCreateForm(Model model) {
         model.addAttribute("item", new Item());
-        return "add-item-form"; // Adjusted return value
+        return "add-item-form";
     }
 
     // to save a new item
@@ -157,21 +154,21 @@ public class FoodController {
             restaurant.addItem(item);
             itemRepo.save(item);
         }
-        return "redirect:/"; // Adjusted return value
+        return "redirect:/";
     }
 
     // to delete an item from the shop menu
     @GetMapping("/delete-item/{id}")
     public String deleteItem(@PathVariable Long id) {
         itemRepo.deleteById(id);
-        return "redirect:/"; // Adjusted return value
+        return "redirect:/";
     }
 
     // to show orders
     @GetMapping("/show-orders/{id}")
     public String showOrders(@PathVariable Long id, Model model) {
         model.addAttribute("orders", orderRepo.findAllBySellerId(id));
-        return "show-orders"; // Adjusted return value
+        return "show-orders";
     }
 
     // Accepting orders is enough with just HTML
@@ -180,6 +177,6 @@ public class FoodController {
     @GetMapping("/deny-order/{id}")
     public String denyOrder(@PathVariable Long id) {
         orderRepo.deleteById(id);
-        return "redirect:/"; // Adjusted return value
+        return "redirect:/";
     }
 }

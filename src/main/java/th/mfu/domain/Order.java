@@ -18,16 +18,22 @@ public class Order {
 
     private double amount;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
     private List<OrderItem> orderItems;
 
-    // Constructors, getters, and setters
+    // Constructors
 
+    // คอนสตรักเตอร์เริ่มต้น
     public Order() {
-        // Default constructor
     }
 
-    // Getters and setters...
+    // คอนสตรักเตอร์พารามิเตอร์
+    public Order(double amount, List<OrderItem> orderItems) {
+        this.amount = amount;
+        this.orderItems = orderItems;
+    }
+
+    // Getters and setters
 
     public Long getId() {
         return id;
