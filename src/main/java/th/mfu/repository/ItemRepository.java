@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import th.mfu.domain.*;
+import th.mfu.domain.Item;
 
-public interface ItemRepository extends CrudRepository<Item, Long>{
+public interface ItemRepository extends CrudRepository<Item, Long> {
 
-    Object findAllById(Long id);
-    
+    List<Item> findAllById(Long id);
+
 }

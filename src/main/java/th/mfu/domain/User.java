@@ -1,9 +1,8 @@
 package th.mfu.domain;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import javax.annotation.Generated;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,29 +10,40 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
-
+@Entity
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String name;
-    private long Id;
     private String password;
-
-    private List<Item> cart = new ArrayList<Item> ();
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     @OneToMany(cascade = CascadeType.ALL)
     private Order order;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Item> cart = new ArrayList<>();
+
+    // Constructors, getters, and setters...
+
+    public User() {
+        // Constructor เริ่มต้น
+    }
+
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -43,12 +53,12 @@ public class User {
         this.name = name;
     }
 
-    public long getId() {
-        return Id;
+    public String getPassword() {
+        return password;
     }
 
-    public void setId(long id) {
-        Id = id;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Order getOrder() {
@@ -66,5 +76,4 @@ public class User {
     public void setCart(List<Item> cart) {
         this.cart = cart;
     }
-
 }

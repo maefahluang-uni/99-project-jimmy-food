@@ -1,9 +1,13 @@
 package th.mfu.repository;
 
 import java.util.List;
-import th.mfu.domain.*;
+
 import org.springframework.data.repository.CrudRepository;
 
-public interface RestaurantRepository extends CrudRepository<Restaurant, Long>{
-    
+import th.mfu.domain.Restaurant;
+
+public interface RestaurantRepository extends CrudRepository<Restaurant, Long> {
+
+    List<Restaurant> findAll();
+
 }

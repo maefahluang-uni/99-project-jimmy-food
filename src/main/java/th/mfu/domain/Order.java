@@ -1,5 +1,7 @@
 package th.mfu.domain;
+
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -7,17 +9,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private double amount;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private OrderItem orderItem;
+    private List<OrderItem> orderItems;
+
+    // Constructors, getters, and setters
+
+    public Order() {
+        // Default constructor
+    }
+
+    // Getters and setters...
 
     public Long getId() {
         return id;
@@ -35,13 +45,11 @@ public class Order {
         this.amount = amount;
     }
 
-    public OrderItem getOrderItem() {
-        return orderItem;
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
     }
 
-    public void setOrderItem(Item orderItem2) {
-        this.orderItem = orderItem2;
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
-
-    
 }
