@@ -35,7 +35,7 @@ html::-webkit-scrollbar-track{
 }
 
 html::-webkit-scrollbar-thumb{
-    background:var(--orange);
+    background:var(--purple);
     border-radius: 5rem;
 }
 
@@ -112,7 +112,7 @@ section{
 }
 
 .header .logo i{
-    color:var(--purple);
+    color:var(--black);
 }
 
 .header .search-form{
@@ -142,7 +142,7 @@ section{
 }
 
 .header .search-form label:hover{
-    color:var(--purple);
+    color:var(--black);
 }
 
 .header .icons div{
@@ -192,7 +192,7 @@ section{
 } 
 
 .header .navbar a:hover{
-    color:var(--purple);
+    color:var(--black);
     background:var(--bg-color-2);
     padding-left: 2rem;
 }
@@ -305,7 +305,7 @@ section{
 }
 
 .packages .box-container .box .image h3 i{
-    color:var(--purple);
+    color:var(--black);
 }
 
 .packages .box-container .box .content{
@@ -355,8 +355,8 @@ section{
     color:var(--text-color-1);
 }
 
-.pricing .box-container .box .price{
-    padding-top: 2rem;
+        .pricing .box-container .box .price{
+            padding-top: 2rem;
 }
 
 .pricing .box-container .box .price span{
@@ -419,7 +419,7 @@ section{
 
 .review .review-slider .slide .stars i{
     font-size: 2rem;
-    color:var(--orange);
+    color:var(--black);
 }
 
 .swiper-pagination-bullet-active{
@@ -514,12 +514,12 @@ section{
 }
 
 .blogs .box-container .box .content .icons a:hover{
-    color:var(--purple);
+    color:var(--black);
 }
 
 .blogs .box-container .box .content .icons a i{
     padding-right: .5rem;
-    color:var(--purple);
+    color:var(--black);
 }
 
 .footer{
@@ -547,7 +547,7 @@ section{
 
 .footer .box-container .box a i{
     padding-right: .5rem;
-    color:var(--purple);
+    color:var(--black);
 }
 
 .footer .box-container .box a:hover i{
@@ -565,7 +565,7 @@ section{
 }
 
 .footer .credit span{
-    color:var(--purple);
+    color:var(--black);
 }
 
 
