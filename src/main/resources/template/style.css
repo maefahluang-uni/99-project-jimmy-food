@@ -20,14 +20,14 @@
 }
 
 html{
-    font-size: 62.5%;
+    font-size: 80%;
     overflow-x: hidden;
     scroll-padding-top: 7rem;
     scroll-behavior: smooth;
 }
 
 html::-webkit-scrollbar{
-    width:.8rem;
+    width: 15rem;
 }
 
 html::-webkit-scrollbar-track{
@@ -36,7 +36,7 @@ html::-webkit-scrollbar-track{
 
 html::-webkit-scrollbar-thumb{
     background:var(--purple);
-    border-radius: 5rem;
+    border-radius: 15rem;
 }
 
 body{
@@ -83,7 +83,7 @@ section{
     display: inline-block;
     padding:.8rem 3rem;
     font-size: 1.7rem;
-    color:#fff;
+    color:#000;
     background:#9D65CA;
     border-radius: .5rem;
     cursor: pointer;
@@ -142,7 +142,7 @@ section{
 }
 
 .header .search-form label:hover{
-    color:var(--purple);
+    color:var(--black);
 }
 
 .header .icons div{
@@ -192,7 +192,7 @@ section{
 }
 
 .header .navbar a:hover{
-    color:var(--purple);
+    color:var(--black);
     background:var(--bg-color-2);
     padding-left: 2rem;
 }
@@ -303,7 +303,7 @@ section{
 }
 
 .packages .box-container .box .image h3 i{
-    color:var(--purple);
+    color:var(--black);
 }
 
 .packages .box-container .box .content{
@@ -417,7 +417,7 @@ section{
 
 .review .review-slider .slide .stars i{
     font-size: 2rem;
-    color:var(--purple);
+    color:var(--black);
 }
 
 .swiper-pagination-bullet-active{
@@ -512,12 +512,12 @@ section{
 }
 
 .blogs .box-container .box .content .icons a:hover{
-    color:var(--orange);
+    color:var(--black);
 }
 
 .blogs .box-container .box .content .icons a i{
     padding-right: .5rem;
-    color:var(--purple);
+    color:var(--black);
 }
 
 .footer{
@@ -545,7 +545,7 @@ section{
 
 .footer .box-container .box a i{
     padding-right: .5rem;
-    color:var(--purple);
+    color:var(--black);
 }
 
 .footer .box-container .box a:hover i{
@@ -563,7 +563,7 @@ section{
 }
 
 .footer .credit span{
-    color:var(--purple);
+    color:var(--black);
 }
 
 
