@@ -2,7 +2,7 @@
 
 :root{
     --purple:#5d54a4;
-    --text-color-1:#444;
+    --text-color-1:#0a0a0a;
     --text-color-2:#666;
     --bg-color-1:#9D65CA;
     --bg-color-2:#D788D7;
@@ -40,12 +40,12 @@ html::-webkit-scrollbar-thumb{
 }
 
 body{
-    background:var(--purple);
+    background:var(--bg-color-1);
 }
 
 body.active{
-    --text-color-1:#333;
-    --text-color-2:#eee;
+    --text-color-1:#0a0a0a;
+    --text-color-2:#666;
     --bg-color-1:#9D65CA;
     --bg-color-2:#D788D7;
     --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.4);
@@ -72,7 +72,7 @@ section{
     position: absolute;
     left: 0;
     z-index: -1;
-    background: var(--purple);
+    background: var(--bg-color-1);
     height: 100%;
     width: 100%;
     clip-path: polygon(0 90%, 100% 83%, 100% 100%, 0% 100%);
@@ -83,7 +83,7 @@ section{
     display: inline-block;
     padding:.8rem 3rem;
     font-size: 1.7rem;
-    color:#fff;
+    color:#0a0a0a;
     --bg-color-1:#9D65CA;
     border-radius: .15rem;
     cursor: pointer;
@@ -112,11 +112,11 @@ section{
 }
 
 .header .logo i{
-    color:var(--black);
+    color:var(--text-color-1);
 }
 
 .header .search-form{
-    background:var(--bg-color-2);
+    background:var(--bg-color-1);
     border-radius: .5rem;
     display: flex;
     align-items: center;
@@ -127,22 +127,22 @@ section{
 .header .search-form input{
     height:100%;
     width:100%;
-    background:var(--purple); /* กำหนดพื้นหลังเป็นสีม่วง */
+    background:none;
     text-transform: none;
     font-size: 1.5rem;
-    color:var(--black);/* กำหนดสีตัวอักษรเป็นสีดำ */
+    color:var(--text-color-1);
     padding:1rem;
 }
 
 .header .search-form label{
     font-size: 2rem;
     margin-right: 1.5rem;
-    color:var(--black);
+    color:var(--text-color-1);
     cursor: pointer;
 }
 
 .header .search-form label:hover{
-    color:var(--black);
+    color:var(--text-color-1);
 }
 
 .header .icons div{
@@ -152,15 +152,15 @@ section{
     font-size: 2rem;
     border-radius: .5rem;
     margin-left: .5rem;
-    background:var(--purple);
-    color:var(--black);
+    background:var(--bg-color-1);
+    color:var(--text-color-1);
     cursor: pointer;
     text-align: center;
 }
 
 .header .icons div:hover{
     color:#0f0f0f;
-    background:var(--purple);
+    background:var(--bg-color-1);
 }
 
 #search-btn{
@@ -170,7 +170,7 @@ section{
 .header .navbar{
     position:absolute;
     top:115%; right:7%;
-    background:var(--purple);
+    background:var(--bg-color-1);
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
     width:25rem;
@@ -192,8 +192,8 @@ section{
 } 
 
 .header .navbar a:hover{
-    color:var(--black);
-    background:var(--purple);
+    color:var(--text-color-1);
+    background:var(--bg-color-1);
     padding-left: 2rem;
 }
  
@@ -226,14 +226,14 @@ section{
 }
 
 .home .content p{
-    color:var(--black);
+    color:var(--text-color-1);
     font-size: 1.7rem;
     line-height: 1.7;
     padding:1rem 0;
 }
 
 .form-container form{
-    background: var(--purple);
+    background: var(--bg-color-1);
     box-shadow: var(--box-shadow);
     border-radius: .5rem;
     padding:2rem;
@@ -249,13 +249,13 @@ section{
 
 .form-container form .inputBox span{
     font-size: 1.7rem;
-    color:var(--black);
+    color:var(--text-color-1);
 }
 
 .form-container form .inputBox input{
     font-size: 1.5rem;
-    color:var(--black);
-    background:var(--purple);
+    color:var(--text-color-1);
+    background:var(--bg-color-1);
     border-radius: .5rem;
     margin:.5rem 0;
     text-transform: none;
@@ -274,7 +274,7 @@ section{
 }
 
 .packages .box-container .box{
-    background:var(--purple);
+    background:var(--bg-color-1);
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
 }
@@ -305,7 +305,7 @@ section{
 }
 
 .packages .box-container .box .image h3 i{
-    color:var(--black);
+    color:var(--text-color-1);
 }
 
 .packages .box-container .box .content{
@@ -321,7 +321,7 @@ section{
 
 .packages .box-container .box .content .price span{
     font-weight: lighter;
-    color:var(--black);
+    color:var(--text-color-1);
     font-size: 1.5rem;
     text-decoration: line-through;
 }
@@ -329,7 +329,7 @@ section{
 .packages .box-container .box .content p{
     font-size: 1.5rem;
     padding:.5rem 0;
-    color:var(--black);
+    color:var(--text-color-1);
     line-height: 1.7;
 }
  
@@ -340,7 +340,7 @@ section{
 }
 
 .pricing .box-container .box{
-    background:var(--purple);
+    background:var(--bg-color-1);
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
     padding:2rem;
@@ -349,10 +349,10 @@ section{
 
 .pricing .box-container .box h3{
     padding:1rem;
-    background: var(--purple);
+    background: var(--bg-color-1);
     border-radius: .5rem;
     font-size: 2rem;
-    color:var(--black);
+    color:var(--text-color-1);
 }
 
         .pricing .box-container .box .price{
@@ -361,12 +361,12 @@ section{
 
 .pricing .box-container .box .price span{
     font-size: 2rem;
-    color:var(--black);
+    color:var(--text-color-1);
 }
 
 .pricing .box-container .box .price .amount{
     font-size: 5rem;
-    color:var(--black);
+    color:var(--text-color-1);
     font-weight: bolder;
 }
 
@@ -378,7 +378,7 @@ section{
 .pricing .box-container .box ul li{
     padding: 1rem 0;
     font-size: 1.7rem;
-    color:var(--black);
+    color:var(--text-color-1);
 }
 
 .review .review-slider{
@@ -386,7 +386,7 @@ section{
 }
 
 .review .review-slider .slide{
-    background: var(--purple);
+    background: var(--bg-color-1);
     border-radius: .5rem;
     text-align: center;
     padding: 3rem;
@@ -402,12 +402,12 @@ section{
 
 .review .review-slider .slide h3{
     font-size: 2.5rem;
-    color:var(--black);
+    color:var(--text-color-1);
 }
 
 .review .review-slider .slide p{
     font-size: 1.6rem;
-    color:var(--text-color-2);
+    color:var(--text-color-1);
     line-height: 1.7;
     padding: 1rem 0;
 }
@@ -423,7 +423,7 @@ section{
 }
 
 .swiper-pagination-bullet-active{
-    background: var(--purple);
+    background: var(--bg-color-1);
 }
 
 .contact form{
@@ -443,9 +443,9 @@ section{
     width: 100%;
     padding:1rem;
     font-size: 1.6rem;
-    color:var(--black);
+    color:var(--text-color-1);
     margin:.7rem 0;
-    background: var(--purple);
+    background: var(--bg-color-1);
     box-shadow: var(--box-shadow);
     text-transform: none;
     border-radius: .5rem;
@@ -467,7 +467,7 @@ section{
 }
 
 .blogs .box-container .box{
-    background:var(--purple);
+    background:var(--bg-color-1);
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
     padding:2rem;
@@ -478,7 +478,7 @@ section{
     width: 100%;
     overflow:hidden;
     border-radius: .5rem;
-    background: var(--purple);
+    background: var(--bg-color-1);
 }
 
 .blogs .box-container .box .image img{
@@ -496,34 +496,34 @@ section{
 
 .blogs .box-container .box .content h3{
    font-size: 2rem;
-   color:var(--black);
+   color:var(--text-color-1);
    line-height: 1.5;
 }
 
 .blogs .box-container .box .content .icons{
     display: flex;
     justify-content: space-between;
-    border-top: .1rem solid var(--black);
+    border-top: .1rem solid var(--text-color-1);
     margin-top: 2rem;
     padding-top: 1.5rem;
 }
 
 .blogs .box-container .box .content .icons a{
     font-size: 1.5rem;
-    color:var(--black);
+    color:var(--text-color-1);
 }
 
 .blogs .box-container .box .content .icons a:hover{
-    color:var(--black);
+    color:var(--text-color-1);
 }
 
 .blogs .box-container .box .content .icons a i{
     padding-right: .5rem;
-    color:var(--black);
+    color:var(--text-color-1);
 }
 
 .footer{
-    background: var(--purple);
+    background: var(--bg-color-1);
 }
 
 .footer .box-container{
@@ -534,14 +534,14 @@ section{
 
 .footer .box-container .box h3{
     font-size: 2.5rem;
-    color:var(--black);
+    color:var(--text-color-1);
     padding:1rem 0;
 }
 
 .footer .box-container .box a{
     display: block;
     font-size: 1.5rem;
-    color:var(--black);
+    color:var(--text-color-1);
     padding:1rem 0;
 }
 
@@ -557,7 +557,7 @@ section{
 .footer .credit{
     font-size: 2rem;
     text-align: center;
-    border-top: .1rem solid var(--black);
+    border-top: .1rem solid var(--text-color-1);
     padding:1rem;
     padding-top: 2rem;
     margin-top: 2rem;
@@ -565,8 +565,13 @@ section{
 }
 
 .footer .credit span{
-    color:var(--black);
+    color:var(--text-color-1);
 }
+
+
+
+
+
 
 /* media queries  */
 
@@ -603,7 +608,7 @@ section{
     .header .search-form{
         position: absolute;
         top:115%; right: 2rem;
-        background:var(--purple);
+        background:var(--bg-color-1);
         border-radius: .5rem;
         width: 90%;
         box-shadow: var(--box-shadow);
