@@ -568,17 +568,6 @@ section{
     color:var(--black);
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* media queries  */
 
 @media (max-width:991px){
@@ -614,7 +603,7 @@ section{
     .header .search-form{
         position: absolute;
         top:115%; right: 2rem;
-        background:var(--bg-color-1);
+        background:var(--purple);
         border-radius: .5rem;
         width: 90%;
         box-shadow: var(--box-shadow);
