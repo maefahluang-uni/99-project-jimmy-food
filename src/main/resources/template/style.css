@@ -40,7 +40,7 @@ html::-webkit-scrollbar-thumb{
 }
 
 body{
-    background:var(--bg-color-2);
+    background:var(--purple);
 }
 
 body.active{
@@ -127,17 +127,17 @@ section{
 .header .search-form input{
     height:100%;
     width:100%;
-    background:none;
+    background:var(--purple); /* กำหนดพื้นหลังเป็นสีม่วง */
     text-transform: none;
     font-size: 1.5rem;
-    color:var(--text-color-1);
+    color:var(--black);/* กำหนดสีตัวอักษรเป็นสีดำ */
     padding:1rem;
 }
 
 .header .search-form label{
     font-size: 2rem;
     margin-right: 1.5rem;
-    color:var(--text-color-1);
+    color:var(--black);
     cursor: pointer;
 }
 
@@ -152,8 +152,8 @@ section{
     font-size: 2rem;
     border-radius: .5rem;
     margin-left: .5rem;
-    background:var(--bg-color-2);
-    color:var(--text-color-1);
+    background:var(--purple);
+    color:var(--black);
     cursor: pointer;
     text-align: center;
 }
@@ -170,7 +170,7 @@ section{
 .header .navbar{
     position:absolute;
     top:115%; right:7%;
-    background:var(--bg-color-1);
+    background:var(--purple);
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
     width:25rem;
@@ -193,7 +193,7 @@ section{
 
 .header .navbar a:hover{
     color:var(--black);
-    background:var(--bg-color-2);
+    background:var(--purple);
     padding-left: 2rem;
 }
  
@@ -226,14 +226,14 @@ section{
 }
 
 .home .content p{
-    color:var(--text-color-2);
+    color:var(--black);
     font-size: 1.7rem;
     line-height: 1.7;
     padding:1rem 0;
 }
 
 .form-container form{
-    background: var(--bg-color-1);
+    background: var(--purple);
     box-shadow: var(--box-shadow);
     border-radius: .5rem;
     padding:2rem;
@@ -249,13 +249,13 @@ section{
 
 .form-container form .inputBox span{
     font-size: 1.7rem;
-    color:var(--text-color-2);
+    color:var(--black);
 }
 
 .form-container form .inputBox input{
     font-size: 1.5rem;
-    color:var(--text-color-1);
-    background:var(--bg-color-2);
+    color:var(--black);
+    background:var(--purple);
     border-radius: .5rem;
     margin:.5rem 0;
     text-transform: none;
@@ -274,7 +274,7 @@ section{
 }
 
 .packages .box-container .box{
-    background:var(--bg-color-1);
+    background:var(--purple);
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
 }
@@ -321,7 +321,7 @@ section{
 
 .packages .box-container .box .content .price span{
     font-weight: lighter;
-    color:var(--text-color-2);
+    color:var(--black);
     font-size: 1.5rem;
     text-decoration: line-through;
 }
@@ -329,7 +329,7 @@ section{
 .packages .box-container .box .content p{
     font-size: 1.5rem;
     padding:.5rem 0;
-    color:var(--text-color-2);
+    color:var(--black);
     line-height: 1.7;
 }
  
@@ -340,7 +340,7 @@ section{
 }
 
 .pricing .box-container .box{
-    background:var(--bg-color-1);
+    background:var(--purple);
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
     padding:2rem;
@@ -349,10 +349,10 @@ section{
 
 .pricing .box-container .box h3{
     padding:1rem;
-    background: var(--bg-color-2);
+    background: var(--purple);
     border-radius: .5rem;
     font-size: 2rem;
-    color:var(--text-color-1);
+    color:var(--black);
 }
 
         .pricing .box-container .box .price{
@@ -361,12 +361,12 @@ section{
 
 .pricing .box-container .box .price span{
     font-size: 2rem;
-    color:var(--text-color-2);
+    color:var(--black);
 }
 
 .pricing .box-container .box .price .amount{
     font-size: 5rem;
-    color:var(--text-color-1);
+    color:var(--black);
     font-weight: bolder;
 }
 
@@ -378,7 +378,7 @@ section{
 .pricing .box-container .box ul li{
     padding: 1rem 0;
     font-size: 1.7rem;
-    color:var(--text-color-2);
+    color:var(--black);
 }
 
 .review .review-slider{
@@ -386,7 +386,7 @@ section{
 }
 
 .review .review-slider .slide{
-    background: var(--bg-color-1);
+    background: var(--purple);
     border-radius: .5rem;
     text-align: center;
     padding: 3rem;
@@ -402,7 +402,7 @@ section{
 
 .review .review-slider .slide h3{
     font-size: 2.5rem;
-    color:var(--text-color-1);
+    color:var(--black);
 }
 
 .review .review-slider .slide p{
@@ -443,9 +443,9 @@ section{
     width: 100%;
     padding:1rem;
     font-size: 1.6rem;
-    color:var(--text-color-1);
+    color:var(--black);
     margin:.7rem 0;
-    background: var(--bg-color-1);
+    background: var(--purple);
     box-shadow: var(--box-shadow);
     text-transform: none;
     border-radius: .5rem;
@@ -467,7 +467,7 @@ section{
 }
 
 .blogs .box-container .box{
-    background:var(--bg-color-1);
+    background:var(--purple);
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
     padding:2rem;
@@ -478,7 +478,7 @@ section{
     width: 100%;
     overflow:hidden;
     border-radius: .5rem;
-    background: var(--bg-color-2);
+    background: var(--purple);
 }
 
 .blogs .box-container .box .image img{
@@ -496,21 +496,21 @@ section{
 
 .blogs .box-container .box .content h3{
    font-size: 2rem;
-   color:var(--text-color-1);
+   color:var(--black);
    line-height: 1.5;
 }
 
 .blogs .box-container .box .content .icons{
     display: flex;
     justify-content: space-between;
-    border-top: .1rem solid var(--text-color-2);
+    border-top: .1rem solid var(--black);
     margin-top: 2rem;
     padding-top: 1.5rem;
 }
 
 .blogs .box-container .box .content .icons a{
     font-size: 1.5rem;
-    color:var(--text-color-2);
+    color:var(--black);
 }
 
 .blogs .box-container .box .content .icons a:hover{
@@ -523,7 +523,7 @@ section{
 }
 
 .footer{
-    background: var(--bg-color-1);
+    background: var(--purple);
 }
 
 .footer .box-container{
@@ -534,14 +534,14 @@ section{
 
 .footer .box-container .box h3{
     font-size: 2.5rem;
-    color:var(--text-color-1);
+    color:var(--black);
     padding:1rem 0;
 }
 
 .footer .box-container .box a{
     display: block;
     font-size: 1.5rem;
-    color:var(--text-color-2);
+    color:var(--black);
     padding:1rem 0;
 }
 
@@ -557,7 +557,7 @@ section{
 .footer .credit{
     font-size: 2rem;
     text-align: center;
-    border-top: .1rem solid var(--text-color-2);
+    border-top: .1rem solid var(--black);
     padding:1rem;
     padding-top: 2rem;
     margin-top: 2rem;
