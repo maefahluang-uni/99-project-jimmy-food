@@ -1,6 +1,5 @@
 package th.mfu.domain;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -19,7 +18,7 @@ public class Order {
     private double amount;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
-    private List<OrderItem> orderItems;
+    private List<Cart> orderItems;
 
     // Constructors
 
@@ -28,7 +27,7 @@ public class Order {
     }
 
     // คอนสตรักเตอร์พารามิเตอร์
-    public Order(double amount, List<OrderItem> orderItems) {
+    public Order(double amount, List<Cart> orderItems) {
         this.amount = amount;
         this.orderItems = orderItems;
     }
@@ -51,11 +50,11 @@ public class Order {
         this.amount = amount;
     }
 
-    public List<OrderItem> getOrderItems() {
+    public List<Cart> getOrderItems() {
         return orderItems;
     }
 
-    public void setOrderItems(List<OrderItem> orderItems) {
+    public void setOrderItems(List<Cart> orderItems) {
         this.orderItems = orderItems;
     }
 }
