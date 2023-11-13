@@ -23,19 +23,23 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Item> cart = new ArrayList<>();
+
 
     // Constructors
 
     // Default constructor
     public User() {
+        // Initialize the cart list to avoid NullPointerException
+        this.cart = new ArrayList<>();
     }
 
-    // Parameterized constructor
-    public User(String name, String password) {
+     // Parameterized constructor
+     public User(String name, String password) {
         this.name = name;
         this.password = password;
+        this.cart = new ArrayList<>();
     }
 
     // Getters and setters

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -17,16 +19,21 @@ public class Order {
 
     private double amount;
 
+        @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
     private List<Cart> orderItems;
 
+
     // Constructors
 
-    // คอนสตรักเตอร์เริ่มต้น
+    // Default constructor
     public Order() {
     }
 
-    // คอนสตรักเตอร์พารามิเตอร์
+    // Parameterized constructor
     public Order(double amount, List<Cart> orderItems) {
         this.amount = amount;
         this.orderItems = orderItems;
@@ -48,6 +55,14 @@ public class Order {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public List<Cart> getOrderItems() {

@@ -65,6 +65,12 @@ public class Cart {
         this.order = order;
     }
 
+    public void setItem(Order cartItem) {
+        this.order = cartItem;
+    }
+
     public void setItem(Item cartItem) {
     }
+    
+    
 }

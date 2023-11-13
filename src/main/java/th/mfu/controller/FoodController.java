@@ -17,7 +17,6 @@ import th.mfu.domain.Cart;
 import th.mfu.domain.Item;
 import th.mfu.domain.Order;
 import th.mfu.domain.User;
-import th.mfu.repository.CartRepository;
 import th.mfu.repository.ItemRepository;
 import th.mfu.repository.OrderRepository;
 import th.mfu.repository.RestaurantRepository;
@@ -38,23 +37,20 @@ public class FoodController {
     @Autowired
     private OrderRepository orderRepo;
 
-    @Autowired
-    private CartRepository cartRepo;
-
     private Long userId;
 
     // User
 
     // to create User account
-    @GetMapping("/add-buyer-signup")
+    @GetMapping("/add-user-signup")
     public String addBuyerSignupForm(Model model) {
-        model.addAttribute("buyer", new User());
-        return "buyer-signup-form";
+        model.addAttribute("user", new User());
+        return "user-signup-form";
     }
 
     // to save User account
     @PostMapping("/save-user")
-    public String saveUser(@ModelAttribute("buyer") User user) {
+    public String saveUser(@ModelAttribute("user") User user) {
         userRepo.save(user);
         return "redirect:/";
     }
@@ -64,33 +60,33 @@ public class FoodController {
 
     // to show all shops for the buyer to browse (same for showing discount, popular, and delivery free items)
     @GetMapping("/user-homepage")
-    public String listSellers(Model model) {
+    public String listRestaurant(Model model) {
         model.addAttribute("restaurant", restaurantRepo.findAll());
         return "user-homepage";
     }
 
     // to show items of the selected shop
-    @GetMapping("/show-items/{id}")
+    @GetMapping("/restautant-items/{id}")
     public String showItems(@PathVariable Long id, Model model) {
-        model.addAttribute("shopitems", itemRepo.findAllById(id));
-        return "shop-items";
+        model.addAttribute("restaurantItems", itemRepo.findAllById(id));
+        return "restaurant-items";
     }
 
    // to add items to the cart
-@GetMapping("/user-add-food/{id}")
-public String addToCart(@PathVariable Long id, Model model) {
-    model.addAttribute("cartItem", new Item());
-    Item item = itemRepo.findById(id).orElse(null);
-    if (item != null) {
-        // Fetch user from session or database
-        User user = userRepo.findById(userId).orElse(null); // Replace userId with the actual ID or parameter
-        if (user != null) {
-            user.getCart().add(item);
-            userRepo.save(user);
+    @GetMapping("/user-add-food/{id}")
+    public String addToCart(@PathVariable Long id, Model model) {
+        model.addAttribute("cartItem", new Item());
+        Item item = itemRepo.findById(id).orElse(null);
+        if (item != null) {
+            // Fetch user from session or database
+            User user = userRepo.findById(userId).orElse(null); // Replace userId with the actual ID or parameter
+            if (user != null) {
+                user.getCart().add(item);
+                userRepo.save(user);
+            }
         }
+        return "redirect:/";
     }
-    return "redirect:/";
-}
 
 
 
