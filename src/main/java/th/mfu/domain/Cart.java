@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class OrderItem {
+public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +22,11 @@ public class OrderItem {
     // Constructors
 
     // Default constructor
-    public OrderItem() {
+    public Cart() {
     }
 
     // Parameterized constructor
-    public OrderItem(String name, int quantity) {
+    public Cart(String name, int quantity) {
         this.name = name;
         this.quantity = quantity;
     }
@@ -63,5 +63,8 @@ public class OrderItem {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public void setItem(Item cartItem) {
     }
 }

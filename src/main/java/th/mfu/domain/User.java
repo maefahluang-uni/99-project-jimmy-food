@@ -79,4 +79,7 @@ public class User {
     public void setCart(List<Item> cart) {
         this.cart = cart;
     }
+
+    public void setOrder(Order order) {
+    }
 }

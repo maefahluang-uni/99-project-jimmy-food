@@ -1,10 +1,9 @@
 package th.mfu.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import th.mfu.domain.Item;
+import th.mfu.domain.Cart;
 
-public interface ItemRepository extends CrudRepository<Item, Long> {
-
+public interface CartRepository extends CrudRepository<Cart, Long> {
+  
     Object findAllById(Long id);
-   
 }
