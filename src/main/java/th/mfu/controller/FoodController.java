@@ -109,7 +109,7 @@ public class FoodController {
 
             order.setOrderItems(orderItems);
             orderRepo.save(order);
-            user.setOrder(order);
+            user.setOrders(order);
             user.getCart().clear();
             userRepo.save(user);
         }
