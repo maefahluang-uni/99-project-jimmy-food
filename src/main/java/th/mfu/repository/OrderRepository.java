@@ -1,8 +1,14 @@
 package th.mfu.repository;
 
-import org.springframework.data.repository.CrudRepository;
-import th.mfu.domain.Order;
+import java.util.List;
 
-public interface OrderRepository extends CrudRepository<Order, Long> {
-  
-}
+import org.springframework.data.repository.CrudRepository;
+
+import th.mfu.domain.Order;
+import th.mfu.domain.OrderItem;
+
+public interface OrderRepository extends CrudRepository<OrderItem,Long>{
+
+    void save(Order order);
+ 
+} 
