@@ -10,7 +10,11 @@
 }
 
 *{
+<<<<<<< HEAD
     font-family: 'Lilita One', sans-serif;
+=======
+    font-family: 'Poppins', 'lilita-one';
+>>>>>>> origin/main
     margin:0; padding:0;
     box-sizing: border-box;
     outline: none; border:none;
@@ -35,7 +39,11 @@ html::-webkit-scrollbar-track{
 }
 
 html::-webkit-scrollbar-thumb{
+<<<<<<< HEAD
     background:var(--bg-color-1);
+=======
+    background:var(--purple);
+>>>>>>> origin/main
     border-radius: 5rem;
 }
 
@@ -567,7 +575,11 @@ section{
 
 
 
+<<<<<<< HEAD
  /* */
+=======
+
+>>>>>>> origin/main
 
 /* media queries  */
 
