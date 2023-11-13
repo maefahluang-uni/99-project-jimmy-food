@@ -1,6 +1,5 @@
 package th.mfu.domain;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -18,17 +19,22 @@ public class Order {
 
     private double amount;
 
+        @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
-    private List<OrderItem> orderItems;
+    private List<Cart> orderItems;
+
 
     // Constructors
 
-    // คอนสตรักเตอร์เริ่มต้น
+    // Default constructor
     public Order() {
     }
 
-    // คอนสตรักเตอร์พารามิเตอร์
-    public Order(double amount, List<OrderItem> orderItems) {
+    // Parameterized constructor
+    public Order(double amount, List<Cart> orderItems) {
         this.amount = amount;
         this.orderItems = orderItems;
     }
@@ -51,11 +57,19 @@ public class Order {
         this.amount = amount;
     }
 
-    public List<OrderItem> getOrderItems() {
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Cart> getOrderItems() {
         return orderItems;
     }
 
-    public void setOrderItems(List<OrderItem> orderItems) {
+    public void setOrderItems(List<Cart> orderItems) {
         this.orderItems = orderItems;
     }
 }
