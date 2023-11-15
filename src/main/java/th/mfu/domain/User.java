@@ -1,9 +1,8 @@
 package th.mfu.domain;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import javax.annotation.Generated;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,29 +10,47 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
-
+@Entity
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String name;
-    private long Id;
     private String password;
 
-    private List<Item> cart = new ArrayList<Item> ();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<>();
 
-    public String getPassword() {
-        return password;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Item> cart = new ArrayList<>();
+
+
+    // Constructors
+
+    // Default constructor
+    public User() {
+        // Initialize the cart list to avoid NullPointerException
+        this.cart = new ArrayList<>();
     }
 
-    public void setPassword(String password) {
+     // Parameterized constructor
+     public User(String name, String password) {
+        this.name = name;
         this.password = password;
+        this.cart = new ArrayList<>();
     }
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private Order order;
+    // Getters and setters
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -43,20 +60,20 @@ public class User {
         this.name = name;
     }
 
-    public long getId() {
-        return Id;
+    public String getPassword() {
+        return password;
     }
 
-    public void setId(long id) {
-        Id = id;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public Order getOrder() {
-        return order;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     public List<Item> getCart() {
@@ -67,4 +84,6 @@ public class User {
         this.cart = cart;
     }
 
+    public void setOrder(Order order) {
+    }
 }

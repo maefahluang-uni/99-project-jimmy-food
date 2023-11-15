@@ -1,13 +1,14 @@
 package th.mfu.repository;
 
-import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
+import th.mfu.domain.Item;
 
-import th.mfu.domain.*;
+public interface ItemRepository extends CrudRepository<Item, Long> {
 
-public interface ItemRepository extends CrudRepository<Item, Long>{
-
+<<<<<<< HEAD
+    Object findAllBySellerId(Long id);
+=======
     Object findAllById(Long id);
-    
+>>>>>>> origin/main
+   
 }

@@ -1,13 +1,12 @@
 package th.mfu.repository;
 
-import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 
-import th.mfu.domain.*;
+import th.mfu.domain.Cart;
+import th.mfu.domain.Order;
 
-public interface OrderRepository extends CrudRepository<Order, Long>{
+public interface OrderRepository extends CrudRepository<Cart,Long>{
 
-    Object findAllById(Long id);
-    
-}
+    void save(Order order);
+ 
+} 
