@@ -17,7 +17,7 @@ public class Order {
     private double amount;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private OrderItem orderItem;
+    private Item orderItem;
 
     public Long getId() {
         return id;
@@ -35,7 +35,7 @@ public class Order {
         this.amount = amount;
     }
 
-    public OrderItem getOrderItem() {
+    public Item getOrderItem() {
         return orderItem;
     }
 
