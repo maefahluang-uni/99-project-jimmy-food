@@ -72,7 +72,7 @@
         }
 
         #food-price {
-            font-size: 16px; /* ปรับขนาดตัวอักษรของราคา */
+            font-size: 16px; /* ปรับขนาดตัวอักษรของราคา.... */
             margin-bottom: 20px;
         }
 
@@ -123,25 +123,41 @@
             <button onclick="decreaseQuantity()">-</button>
         </div>
 
+        <button onclick="confirmPayment()">CONFIRM</button>
+
+
         <script>
+            // เพิ่มฟังก์ชันสำหรับการยืนยันการชำระเงิน
+            function confirmPayment() {
+                // ทำสิ่งที่คุณต้องการเมื่อกดปุ่ม CONFIRM
+                alert('Payment Confirmed!');
+                // สามารถเพิ่มขั้นตอนเพิ่มเติมที่นี่
+            }
+        
+            // เพิ่มฟังก์ชันสำหรับการเลือกบัตรเครดิต
+            function selectCreditCard(cardNumber) {
+                alert('Selected Credit Card: ' + cardNumber);
+                // ทำสิ่งที่คุณต้องการเมื่อเลือกบัตรเครดิต
+            }
+        
             // Initial values
             var quantity = 1;
             var pricePerUnit = 40.00; // Set the initial price per unit
-
+        
             // Function to remove the food item
             function removeFoodItem() {
                 var foodItem = document.getElementById('food-item');
                 foodItem.parentNode.removeChild(foodItem);
                 updateTotalPrice(); // Update the total price after removing an item
             }
-
+        
             // Function to increase quantity
             function increaseQuantity() {
                 quantity++;
                 document.getElementById('food-quantity').innerHTML = 'Quantity: ' + quantity;
                 updateTotalPrice(); // Update the total price after increasing quantity
             }
-
+        
             // Function to decrease quantity
             function decreaseQuantity() {
                 if (quantity > 1) {
@@ -150,7 +166,7 @@
                     updateTotalPrice(); // Update the total price after decreasing quantity
                 }
             }
-
+        
             // Function to update the total price
             function updateTotalPrice() {
                 var totalPrice = quantity * pricePerUnit;
@@ -159,32 +175,33 @@
         </script>
 
         <!-- Payment methods -->
-        <div id="payment-method">
-            <label for="payment">Payment Method:</label>
-            <div class="payment-methods">
-                <div class="payment-method">
-                    <input type="radio" id="creditCard" name="paymentMethod" value="creditCard">
-                    <label for="creditCard">Credit/Debit Card</label>
-                </div>
+    <div id="payment-method">
+        <label for="payment">Payment Method:</label>
+        <div class="payment-methods">
+            <div class="payment-method">
+                <input type="radio" id="creditCard1" name="paymentMethod" value="creditCard1" onclick="selectCreditCard('1760 **** **** **48')">
+                <label for="creditCard1">1760 **** **** **48</label>
+            </div>
 
-                <div class="payment-method">
-                    <input type="radio" id="payCash" name="paymentMethod" value="payCash">
-                    <label for="payCash">Cash</label>
-                </div>
+            <div class="payment-method">
+                <input type="radio" id="creditCard2" name="paymentMethod" value="creditCard2" onclick="selectCreditCard('6233 **** **** **57')">
+                <label for="creditCard2">6233 **** **** **57</label>
+            </div>
 
-                <div class="payment-method">
-                    <input type="radio" id="addCard" name="paymentMethod" value="addCard">
-                    <label for="addCard">Add Card</label>
+            <div class="payment-method">
+                <input type="radio" id="cash" name="paymentMethod" value="cash">
+                <label for="cash">Cash</label>
+            </div>
+
+            <div class="payment-method">
+                <input type="radio" id="addCard" name="paymentMethod" value="addCard">
+                <label for="addCard">Add a credit card</label>
                 </div>
             </div>
         </div>
 
-        <!-- Your payment form goes here -->
-        <form>
-            <!-- Add your form fields here -->
-        </form>
     </div>
 
 </body>
-
+            
 </html>
