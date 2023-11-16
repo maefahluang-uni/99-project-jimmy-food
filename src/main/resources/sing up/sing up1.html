@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +14,10 @@
             justify-content: center;
             flex-direction: column;
             height: 100vh;
-            background-color: #D788D7; /* สีพื้นหลังของหน้า Sign Up */
-            color: #fff; /* สีของตัวอักษร */
+            color: #fff;
             font-family: Arial, sans-serif;
         }
+
         #logo {
             font-family: 'Lilita One';
             font-size: 36px;
@@ -25,10 +26,18 @@
             top: 20px;
             left: 20px;
             z-index: 2;
-            
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
         .signup-container {
-            background-color: #ffffff; /* สีพื้นหลังของกล่อง Sign Up */
+            background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -44,19 +53,19 @@
             margin-bottom: 20px;
             box-sizing: border-box;
         }
+
         img {
-            width: 15%; /* ปรับขนาดของรูปภาพ */
+            width: 15%;
             height: 40%;
-            margin-top: -350px; /* ปรับการจัดวางรูปภาพ */
+            margin-top: -350px;
             z-index: 1;
-            
         }
 
         button {
             padding: 10px 20px;
             font-size: 18px;
-            background-color: #6C3483; /* สีพื้นหลังของปุ่ม Sign Up */
-            color: #fff; /* สีของตัวอักษรในปุ่ม */
+            background-color: #6C3483;
+            color: #fff;
             border: none;
             border-radius: 20px;
             cursor: pointer;
@@ -64,10 +73,30 @@
         }
 
         button:hover {
-            background-color: #4A235A; /* สีพื้นหลังของปุ่มเมื่อ hover */
+            background-color: #4A235A;
         }
     </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var backgroundImages = [
+                '1.jpeg',
+                '2.jpeg',
+                '3.jpeg',
+                '4.jpeg',
+                '5.jpeg'
+            ];
+
+            var randomIndex = Math.floor(Math.random() * backgroundImages.length);
+            var selectedImage = backgroundImages[randomIndex];
+
+            document.body.style.backgroundImage = 'url(' + selectedImage + ')';
+            document.body.style.backgroundSize = 'cover';
+            document.body.style.backgroundRepeat = 'no-repeat';
+        });
+    </script>
 </head>
+
 <body>
     <div id="logo">JIMMY FOOD</div>
     <img src="logo jimmyfood.png" alt="">
@@ -80,6 +109,6 @@
             <button type="submit">Sign Up</button>
         </form>
     </div>
-
 </body>
+
 </html>

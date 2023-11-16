@@ -25,6 +25,14 @@
             top: 20px;
             left: 20px;
             z-index: 2;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .login-container {
             background-color: #fff; /* สีพื้นหลังของกล่อง login */
@@ -65,6 +73,24 @@
             z-index: 1;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var backgroundImages = [
+                '1.jpeg',
+                '2.jpeg',
+                '3.jpeg',
+                '4.jpeg',
+                '5.jpeg'
+            ];
+
+            var randomIndex = Math.floor(Math.random() * backgroundImages.length);
+            var selectedImage = backgroundImages[randomIndex];
+
+            document.body.style.backgroundImage = 'url(' + selectedImage + ')';
+            document.body.style.backgroundSize = 'cover';
+            document.body.style.backgroundRepeat = 'no-repeat';
+        });
+    </script>
 </head>
 <body>
 
