@@ -11,4 +11,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Override
     <S extends User> S save(S user);
 
+    Object findById(Long id);
+
 }
