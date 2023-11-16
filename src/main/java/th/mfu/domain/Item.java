@@ -1,14 +1,15 @@
 package th.mfu.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Item {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,8 +17,9 @@ public class Item {
     private String name;
     private Double price;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Order order;
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id") // adjust the column name based on your database schema
+    private Restaurant restaurant;
 
     // Constructors
 
@@ -57,12 +59,12 @@ public class Item {
         this.price = price;
     }
 
-    public Order getOrder() {
-        return order;
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
     // toString method for better logging and debugging
@@ -72,7 +74,7 @@ public class Item {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", order=" + order +
+                ", restaurant=" + restaurant +
                 '}';
     }
 }

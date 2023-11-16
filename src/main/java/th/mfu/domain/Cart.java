@@ -65,6 +65,17 @@ public class Cart {
         this.order = order;
     }
 
+<<<<<<< HEAD:src/main/java/th/mfu/domain/OrderItem.java
     public void setItem(Item cartItem) {
     }
+=======
+    public void setItem(Order cartItem) {
+        this.order = cartItem;
+    }
+
+    public void setItem(Item cartItem) {
+    }
+    
+    
+>>>>>>> origin/main:src/main/java/th/mfu/domain/Cart.java
 }

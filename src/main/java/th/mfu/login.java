@@ -1,6 +1,6 @@
 package th.mfu;
 
-public class Login {
+public class login {
 
     private String username;
     private String password;
