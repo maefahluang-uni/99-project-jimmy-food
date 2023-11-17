@@ -1,5 +1,21 @@
+<<<<<<< HEAD
 canvas
 {
   border: 1px solid black;
   cursor: none;
 }
+=======
+/* Add your CSS styles here */
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#center {
+    text-align: center;
+}
+
+#canvas {
+    border: 1px solid black;
+}
+>>>>>>> refs/remotes/origin/main
