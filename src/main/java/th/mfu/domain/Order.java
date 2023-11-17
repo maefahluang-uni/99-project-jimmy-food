@@ -19,10 +19,6 @@ public class Order {
 
     private double amount;
 
-<<<<<<< HEAD
-    @OneToMany(cascade = CascadeType.ALL)
-    private Item orderItem;
-=======
         @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -44,7 +40,6 @@ public class Order {
     }
 
     // Getters and setters
->>>>>>> e3bc913217bd798c993ab41ba535a983a6075e98
 
     public Long getId() {
         return id;
@@ -62,13 +57,8 @@ public class Order {
         this.amount = amount;
     }
 
-<<<<<<< HEAD
-    public Item getOrderItem() {
-        return orderItem;
-=======
     public User getUser() {
         return user;
->>>>>>> e3bc913217bd798c993ab41ba535a983a6075e98
     }
 
     public void setUser(User user) {
@@ -81,5 +71,8 @@ public class Order {
 
     public void setOrderItems(List<Cart> orderItems) {
         this.orderItems = orderItems;
+    }
+
+    public void setItem(Item cartItem) {
     }
 }
