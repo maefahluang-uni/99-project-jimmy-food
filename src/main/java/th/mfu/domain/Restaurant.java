@@ -78,8 +78,5 @@ public class Restaurant {
     public void setItems(List<Item> items) {
         this.items = items;
     }
-
-    public void addItem(Item item) {
-    }
 }
 //54564555
