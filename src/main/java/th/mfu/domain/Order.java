@@ -10,8 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table (name= "OrderEntity")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +21,14 @@ public class Order {
 
     private double amount;
 
-        @ManyToOne
-    @JoinColumn(name = "user_id")
+    @ManyToOne(targetEntity = User.class) // Specify the target entity
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
+
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
     private List<Cart> orderItems;

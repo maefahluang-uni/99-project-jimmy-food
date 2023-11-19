@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import th.mfu.domain.Cart;
 import th.mfu.domain.Item;
@@ -42,6 +43,11 @@ public class FoodController {
     private Order order;
 
     private List<Cart> orderItems;
+
+    @RequestMapping("/game")
+    public String showGamePage() {
+        return "index"; // This assumes that your HTML file is still named "index.html"
+    }
 
     // User
 
