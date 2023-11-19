@@ -48,6 +48,14 @@ public class FoodController {
     public String showGamePage() {
         return "index"; // This assumes that your HTML file is still named "index.html"
     }
+    @GetMapping("/signup")
+    public String showSignupPage() {
+        return "signup";
+    }
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "login";
+    }
 
     // User
 
