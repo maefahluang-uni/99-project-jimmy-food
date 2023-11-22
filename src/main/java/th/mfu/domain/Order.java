@@ -21,13 +21,8 @@ public class Order {
 
     private double amount;
 
-<<<<<<< HEAD
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-=======
     @ManyToOne(targetEntity = User.class) // Specify the target entity
     @JoinColumn(name = "user_id", referencedColumnName = "id")
->>>>>>> refs/remotes/origin/main
     private User user;
 
     @ManyToOne
