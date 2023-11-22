@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตะกร้าสินค้า</title>
+    <style>
+        body {
+            background-color: #D788D7;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            color: #D788D7;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .cart-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .cart-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 8px;
+            background-color: #fff;
+            color: #D788D7;
+        }
+
+        .back-button {
+            display: block;
+            margin: 15px;
+            padding: 10px;
+            background-color: #fff;
+            color: #D788D7;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 15px;
+            border: 2px solid #D788D7;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #D788D7;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><u>ตะกร้าสินค้า</u></h1>
+    </header>
+
+    <main>
+        
+    </main>
+
+    <footer>
+        <a class="back-button" href="res2.html">ย้อนกลับไปที่เมนู</a>
+    </footer>
+   
+    
+    <script>
+   // ดึงข้อมูลสินค้าจาก localStorage และแสดงที่นี่
+   var basketItems = localStorage.getItem('basketItems') || '[]';
+        basketItems = JSON.parse(basketItems);
+        var main = document.querySelector('main');
+
+        basketItems.forEach((item, index) => {
+            var cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.dataset.index = index; // เก็บ index ของรายการสินค้า
+            cartItem.innerHTML = `
+                <!-- แสดงข้อมูลสินค้า -->
+                <img src="${item.imagePath}" alt="${item.productName}">
+                <p>${item.productName}</p>
+                <p>Price: ${item.price} baht</p>
+                <button class="delete-button" onclick="removeItem(${index})">X</button>
+            `;
+            main.appendChild(cartItem);
+        });
+
+        function removeItem(index) {
+            // ดึงข้อมูลจาก localStorage
+            var basketItems = localStorage.getItem('basketItems') || '[]';
+            basketItems = JSON.parse(basketItems);
+
+            // ลบรายการที่ถูกคลิก
+            basketItems.splice(index, 1);
+
+            // อัปเดต localStorage
+            localStorage.setItem('basketItems', JSON.stringify(basketItems));
+
+            // รีโหลดหน้า
+            location.reload();
+        }
+</script>
+
+    </script>
+</body>
+
+</html>
