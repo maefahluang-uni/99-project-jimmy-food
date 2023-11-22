@@ -10,8 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table (name= "OrderEntity")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +21,19 @@ public class Order {
 
     private double amount;
 
+<<<<<<< HEAD
     @ManyToOne
     @JoinColumn(name = "user_id")
+=======
+    @ManyToOne(targetEntity = User.class) // Specify the target entity
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+>>>>>>> refs/remotes/origin/main
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
+
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
     private List<Cart> orderItems;
@@ -71,5 +83,8 @@ public class Order {
 
     public void setOrderItems(List<Cart> orderItems) {
         this.orderItems = orderItems;
+    }
+
+    public void setItem(Item cartItem) {
     }
 }

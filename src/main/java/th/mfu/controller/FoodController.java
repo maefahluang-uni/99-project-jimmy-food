@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import th.mfu.domain.Cart;
 import th.mfu.domain.Item;
@@ -39,6 +40,23 @@ public class FoodController {
 
     private Long userId;
 
+    private Order order;
+
+    private List<Cart> orderItems;
+
+    @RequestMapping("/game")
+    public String showGamePage() {
+        return "index"; // This assumes that your HTML file is still named "index.html"
+    }
+    @GetMapping("/signup")
+    public String showSignupPage() {
+        return "signup";
+    }
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "login";
+    }
+
     // User
 
     // to create User account
@@ -65,30 +83,34 @@ public class FoodController {
         return "user-homepage";
     }
 
-    // to show items of the selected shop
-    @GetMapping("/restautant-items/{id}")
-    public String showItems(@PathVariable Long id, Model model) {
-        model.addAttribute("restaurantItems", itemRepo.findAllById(id));
+   // to show items of the selected shop
+@GetMapping("/restaurant-items/{id}")
+public String showItems(@PathVariable Long id, Model model) {
+    Item item = itemRepo.findById(id).orElse(null);
+    if (item != null) {
+        model.addAttribute("restaurantItems", item);
         return "restaurant-items";
+    } else {
+        // Handle the case where the item is not found
+        return "item-not-found"; // You can create a custom error page or redirect as needed
     }
+}
 
-   // to add items to the cart
-    @GetMapping("/user-add-food/{id}")
-    public String addToCart(@PathVariable Long id, Model model) {
-        model.addAttribute("cartItem", new Item());
-        Item item = itemRepo.findById(id).orElse(null);
-        if (item != null) {
-            // Fetch user from session or database
-            User user = userRepo.findById(userId).orElse(null); // Replace userId with the actual ID or parameter
-            if (user != null) {
-                user.getCart().add(item);
-                userRepo.save(user);
-            }
+// to add items to the cart
+@GetMapping("/user-add-food/{id}")
+public String addToCart(@PathVariable Long id, Model model) {
+    model.addAttribute("cartItem", new Item());
+    Item item = itemRepo.findById(id).orElse(null);
+    if (item != null) {
+        // Fetch user from session or database
+        User user = userRepo.findById(userId).orElse(null); // Replace userId with the actual ID or parameter
+        if (user != null) {
+            user.getCart().add(item);
+            userRepo.save(user);
         }
-        return "redirect:/";
     }
-
-
+    return "redirect:/";
+}
 
     // to view carttt
     @GetMapping("/view-cart/{id}")
@@ -109,10 +131,17 @@ public String makeOrder(@PathVariable Long id, Model model) {
         List<Item> cartItems = user.getCart();
         List<Cart> orderItems = new ArrayList<>();
 
-        for (Item cartItem : cartItems) {
-            Cart orderItem = new Cart();
-            orderItem.setItem(cartItem);
-            orderItems.add(orderItem); // Fix: Add to orderItems, not cartItems
+            for (Item cartItem : cartItems) {
+                Cart orderItem = new Cart();
+                orderItem.setItem(cartItem);
+                orderItems.add(orderItem);
+            }
+
+            order.setOrderItems(orderItems);
+            orderRepo.save(order);
+            user.setCart(cartItems);
+            user.getCart().clear();
+            userRepo.save(user);
         }
 
         order.setOrderItems(orderItems);
@@ -120,7 +149,7 @@ public String makeOrder(@PathVariable Long id, Model model) {
         user.setOrder(order);
         user.getCart().clear();
         userRepo.save(user);
-    }
+
     return "thank-you-page";
 }
 

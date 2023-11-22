@@ -4,9 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Cart")
 public class Cart {
 
     @Id
@@ -17,6 +20,7 @@ public class Cart {
     private int quantity;
 
     @ManyToOne
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
     private Order order;
 
     // Constructors
@@ -65,12 +69,6 @@ public class Cart {
         this.order = order;
     }
 
-    public void setItem(Order cartItem) {
-        this.order = cartItem;
-    }
-
     public void setItem(Item cartItem) {
     }
-    
-    
 }

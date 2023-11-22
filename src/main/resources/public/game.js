@@ -1,35 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>coin game</title>
-</head>
-<body>
-    <div id = "center"> </div>
-        <center>
-         <button id="toggleButton">Pause</button><br>
-         click to jump <br>
-         Collect aa 100 coins to win <br>
-         Try to lose as few coins as possible <br>
-
-
-
-        </center>
-    <script>
-        var canvas = ("<canvas id='canvas' width='320' height='240'></canvas>");
+var canvas = $("<canvas id='canvas' width='320' height='240'></canvas>");
 
 var mousex = 160,
     mousey = 120;
 
 var finished = false;
 
-var isPaused = false;
-
 var score = 0,
     coinslost = 0;
 
-canvas.appendTo('center');
+canvas.appendTo('#center');
 
 var ctx = canvas.get(0).getContext("2d");
 
@@ -46,11 +25,11 @@ setInterval(function(){
 }, 1000/60);
 
 setInterval(function(){
-  if(Math.random()>0.3)
+  if(Math.random()>3)
   {
   addCoin();
   }
-}, 1000);
+}, 1000/30);
 
 var player = {
   x: 32,
@@ -60,22 +39,7 @@ var player = {
   yspeed: 0
 };
 
-var gravity = 0.5;
-
-function togglePause() {
-  isPaused = !isPaused;
-  var toggleButton = document.getElementById('toggleButton');
-  
-  if (isPaused) {
-    toggleButton.textContent = 'Play';
-  } else {
-    toggleButton.textContent = 'Pause';
-  }
-}
-
-// Add an event listener for the toggle button
-document.getElementById('toggleButton').addEventListener('click', togglePause);
-
+var gravity = .5;
 
 function draw()
 {
@@ -109,8 +73,6 @@ var finishedcoins;
 
 function update()
 {
-  if (finished || isPaused) 
-    return;
   if (finished)
   {
     exit;
@@ -120,14 +82,15 @@ function update()
     finished = true;
     finishedcoins = coinslost;
   }
-  /*gravity += 0.5;
+  gravity+=.5;
   player.y += gravity;
   player.y -= player.yspeed;
-  */
-  if (player.y > 240 - 16) {
+  
+  if (player.y>240-16)
+  {
     gravity = 0;
     player.yspeed = 0;
-    player.y = 240 - 16;
+    player.y=240-16;
   }
   
   coins.forEach(function(coin){
@@ -136,36 +99,18 @@ function update()
     coin.update();
     }
   });
-
-  // Left movement
-  if (keydown[37]) {
-    player.x -= 5; // Adjust the speed as needed
-  }
-
-  // Right movement
-  if (keydown[39]) {
-    player.x += 5; // Adjust the speed as needed
-  }
-  }
-
   
-
+  if (keydown[32])
+  {
+    if (gravity==0)
+    {
+      player.yspeed = 10;
+    }
+  }
+  
+}
 
 var coins = [];
-
-$(document).keypress(function (event) {
-  // Check if the game is not paused before allowing player input
-  if (!isPaused) {
-    keydown[event.which] = true;
-  }
-});
-
-$(document).keyup(function (event) {
-  // Check if the game is not paused before allowing player input
-  if (!isPaused) {
-    keydown[event.which] = false;
-  }
-});
 
 function addCoin()
 {
@@ -212,7 +157,13 @@ function addCoin()
   
 }
 
+$(document).keypress(function(event){
+  keydown[event.which] = true;
+});
 
+$(document).keyup(function(event){
+  keydown[event.which] = false;
+});
 
 function collides(a, b) {
   
@@ -249,9 +200,4 @@ $("#canvas").mousemove(function(e){
   
   player.x = e.pageX-this.offsetLeft;
   
-}
-);
-    </script>
-    
-</body>
-</html>
+});
