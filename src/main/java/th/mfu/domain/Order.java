@@ -19,7 +19,7 @@ public class Order {
 
     private double amount;
 
-        @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 

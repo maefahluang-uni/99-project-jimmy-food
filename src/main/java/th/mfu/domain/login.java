@@ -1,4 +1,4 @@
-package th.mfu;
+package th.mfu.domain;
 
 public class login {
 

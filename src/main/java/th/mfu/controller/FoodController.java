@@ -90,7 +90,7 @@ public class FoodController {
 
 
 
-    // to view cart
+    // to view carttt
     @GetMapping("/view-cart/{id}")
     public String viewCart(@PathVariable Long id, Model model) {
         User cartUser = userRepo.findById(id).orElse(null);
