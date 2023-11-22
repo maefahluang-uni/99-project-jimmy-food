@@ -49,14 +49,26 @@
             text-decoration: underline; /* Add underlines on hover */
         }
     </style>
-    <a href="">Select Address</a>
-    <a href="sign up/signup.html">Sign Up </a>
-    <a href="sign up/log in1.html">Log In</a>
+    <a href="selectaddress.html">Select Address</a>
+    <a href="sign_up/signup.html">Sign Up </a>
+    <a href="sign_up/login.html">Log In</a>
         <p style="font-size: 120px;"></p>
 </header>
 
 <!-- header section ends -->
+ <form id="addItemForm">
+        <h2>Add Item to Cart</h2>
+        <label for="itemName">Item Name:</label>
+        <input type="text" id="itemName" name="itemName" required>
 
+        <label for="itemDescription">Item Description:</label>
+        <input type="text" id="itemDescription" name="itemDescription" required>
+
+        <label for="itemPrice">Item Price:</label>
+        <input type="number" id="itemPrice" name="itemPrice" min="0" step="0.01" required>
+
+        <button type="button" onclick="addItemToCart()">Add to Cart</button>
+    </form>
 <!-- home section starts  -->
 
 <section class="home" id="home">
@@ -79,11 +91,11 @@
         <button class="btn" onclick="window.location.href='foodmain.html'">FOOD</button>
         <button class="btn" onclick="window.location.href='drinks.html'">DRINKS </button>
         <button class="btn" onclick="window.location.href='bakery.html'">BAKERY </button>
-        <button class="btn">MINI GAMES </i></button>
+        <button class="btn" onclick="window.location.href='game.html'">MINI GAMES </button>
         <style>
             .btn {
                 display: inline-block;
-                margin-right: 80px; /* Adjust the margin as needed */
+                margin-right: 185px; /* Adjust the margin as needed */
             }
         </style>
     </p>
@@ -148,8 +160,9 @@
         </style>
         <div class="box" data-aos="fade-up">
             <div class="image">
-                <img src="https://scontent.fbkk5-3.fna.fbcdn.net/v/t39.30808-6/272261931_4912013425582504_1863501951474351076_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=VB5C6VUvR8sAX8-Wbiu&_nc_ht=scontent.fbkk5-3.fna&cb_e2o_trans=q&oh=00_AfBOUwJXsoIkgG8HrBZy7iJPU21kjLTrDzHW3kDqUwfJHQ&oe=655575B4" alt=""width = "350px" height="350px">
+                <img src="ข้าว1.jpg" alt=""width = "350px" height="350px">
                 <h3> <i class="fas fa-utensils"></i> ข้าวซอย 100 ปี ตาหงษ์ </h3>
+                
             </div>
             <div class="content">
                 <p>Free Delivery &nbsp; &nbsp; 20 min</p>
@@ -161,7 +174,7 @@
         &nbsp;
         <div class="box" data-aos="fade-up">
             <div class="image">
-                <img src="data:image/png;base64,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" alt=""width = "350px" height="350px">
+                <img src="ดอย.png" alt=""width = "350px" height="350px">
                 <h3> <i class="fas fa-utensils"></i> Tid doi Tid din  cafe </h3>
             </div>
             <div class="content">
@@ -174,7 +187,7 @@
         &nbsp;
         <div class="box" data-aos="fade-up">
             <div class="image">
-                <img src="https://scontent.fbkk5-5.fna.fbcdn.net/v/t39.30808-6/311595449_492192386257049_2435071560058587983_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=QwhgoERuFtoAX8TlrlT&_nc_ht=scontent.fbkk5-5.fna&cb_e2o_trans=q&oh=00_AfCns-nz0xXYm-zOSObbuAz_NdvBAyZfFFxCKKYK5O42zw&oe=6556623E" alt=""width = "350px" height="350px">
+                <img src="rib.jpg" alt=""width = "350px" height="350px">
                 <h3> <i class="fas fa-utensils"></i> RIBS&CO </h3>
             </div>
             <div class="content">
@@ -292,17 +305,18 @@
     <div class="swiper-container review-slider" data-aos="zoom-in">
         <div class="swiper-wrapper">
             <div class="swiper-slide slide">
-                <img src="pro1.avif" alt="">
+             <img src="pro 1.avif" alt="">
                 <h3>Kendall Jenner</h3>
                 <p>ข้าวซอยspicyไปนิดนะคะ</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
+                   <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                 </div>
+             </div>
+        
 
             <div class="swiper-slide slide">
                 <img src="pro 2.avif" alt="">
@@ -443,6 +457,7 @@
                 <img src="p2.avif" alt="">
             </div>
             <div class="content">
+                
                 <h3>Discount 60 baht</h3>
                 <button class="btn" onclick="showRedeemNotice()">REDEEM</button>
 
@@ -476,7 +491,7 @@
             <a href="foodmain.html"> <i class="fas fa-hamburger"></i> FOOD </a>
             <a href="#"> <i class="fas fa-cocktail"></i> DRINKS </a>
             <a href="#"> <i class="fas fa-bread-slice"></i> BAKERY </a>
-            <a href="#"> <i class="fas fa-gamepad"></i> MINI GAMES </a>
+            <a href="minigame/game.html"> <i class="fas fa-gamepad"></i> MINI GAMES </a> 
         </div>
 
         <div class="box" data-aos="fade-up">

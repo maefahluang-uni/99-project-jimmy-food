@@ -8,7 +8,7 @@ var finished = false;
 var score = 0,
     coinslost = 0;
 
-canvas.appendTo('center');
+canvas.appendTo('#center');
 
 var ctx = canvas.get(0).getContext("2d");
 
@@ -25,11 +25,11 @@ setInterval(function(){
 }, 1000/60);
 
 setInterval(function(){
-  if(Math.random()>0.3)
+  if(Math.random()>3)
   {
   addCoin();
   }
-}, 1000);
+}, 1000/30);
 
 var player = {
   x: 32,
@@ -39,7 +39,7 @@ var player = {
   yspeed: 0
 };
 
-var gravity = 0.5;
+var gravity = .5;
 
 function draw()
 {
@@ -184,7 +184,7 @@ function collides(a, b) {
          a.y + a.height > b.y;
 }
 
-$('canvas').mousedown(function(e){
+$('#canvas').mousedown(function(e){
   if (gravity==0)
     {
       player.yspeed = 12;
@@ -193,12 +193,11 @@ $('canvas').mousedown(function(e){
   addCoin();
 });
 
-$("canvas").mousemove(function(e){
+$("#canvas").mousemove(function(e){
 
   mousex = e.pageX-this.offsetLeft;  
   mousey = e.pageY-this.offsetTop;
   
   player.x = e.pageX-this.offsetLeft;
   
-}
-);
+});

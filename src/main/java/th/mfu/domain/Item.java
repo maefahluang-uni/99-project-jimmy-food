@@ -21,6 +21,11 @@ public class Item {
     @JoinColumn(name = "restaurant_id") // adjust the column name based on your database schema
     private Restaurant restaurant;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id") // adjust the column name based on your database schema
+    private User user;
+
+
     // Constructors
 
     // Default constructor
@@ -66,6 +71,7 @@ public class Item {
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
     }
+
 
     // toString method for better logging and debugging
     @Override

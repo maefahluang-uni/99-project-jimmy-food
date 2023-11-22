@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import th.mfu.domain.Cart;
 import th.mfu.domain.Item;
@@ -42,6 +43,19 @@ public class FoodController {
     private Order order;
 
     private List<Cart> orderItems;
+
+    @RequestMapping("/game")
+    public String showGamePage() {
+        return "index"; // This assumes that your HTML file is still named "index.html"
+    }
+    @GetMapping("/signup")
+    public String showSignupPage() {
+        return "signup";
+    }
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "login";
+    }
 
     // User
 
@@ -98,7 +112,7 @@ public String addToCart(@PathVariable Long id, Model model) {
     return "redirect:/";
 }
 
-    // to view cart
+    // to view carttt
     @GetMapping("/view-cart/{id}")
     public String viewCart(@PathVariable Long id, Model model) {
         User cartUser = userRepo.findById(id).orElse(null);

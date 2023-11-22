@@ -5,6 +5,6 @@ import th.mfu.domain.Item;
 
 public interface ItemRepository extends CrudRepository<Item, Long> {
 
-    Object findAllBySellerId(Long id);
+    Object findAllByRestaurantId(Long id);
    
 }
