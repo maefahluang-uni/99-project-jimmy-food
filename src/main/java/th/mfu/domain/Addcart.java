@@ -10,9 +10,9 @@ public class Addcart {
     public static void main(String[] args) {
         try {
             // Establish database connection
-            String url = "jdbc:mysql://localhost:3306/your_database";
-            String username = "your_username";
-            String password = "your_password";
+            String url = "jdbc:mysql://localhost:3306/jimmyfood";
+            String username = "root";
+            String password = "123456";
             Connection con = DriverManager.getConnection(url, username, password);
 
             // Start session (if needed)

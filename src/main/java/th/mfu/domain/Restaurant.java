@@ -18,7 +18,7 @@ public class Restaurant {
     private String name;
     private String password;
 
-    // Add relationships with orders and items
+    //Add relationships with orders and items
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Order> orders;
 

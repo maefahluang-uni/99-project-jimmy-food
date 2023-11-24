@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สรุปรายการสินค้า</title>
+    <style>
+        body {
+            background-color: #D788D7;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            color: #D788D7;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .product-summary {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .product-summary img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 8px;
+            background-color: #fff;
+            color: #D788D7;
+        }
+
+        .back-button {
+            display: block;
+            margin: 15px;
+            padding: 10px;
+            background-color: #fff;
+            color: #D788D7;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 15px;
+            border: 2px solid #D788D7;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #D788D7;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><u>Receipt</u></h1>
+    </header>
+
+    <main>
+        <div id="total-summary" class="product-summary">
+            <h2>Total Price Summary</h2>
+            <p id="total-price">Total Price: 0 baht</p>
+        </div>
+    
+    </main>
+
+    <footer>
+        <div id="payment-method">
+            <h2>Choose Payment Method</h2>
+            <label>
+                <input type="radio" name="payment" value="cash" checked>
+                Cash
+            </label>
+            <label>
+                <input type="radio" name="payment" value="credit-card">
+                Credit Card
+            </label>
+        </div>
+        <a class="back-button" href="basket.html">Back to basket</a>
+        <a class="back-button" href="address.html">Seclect address</a>
+        <a class="back-button" href="waititng.html">Confirm</a>
+      
+    </footer>
+
+    <script>
+        // ดึงข้อมูลสินค้าจาก localStorage และแสดงที่นี่
+        var basketItems = localStorage.getItem('basketItems') || '[]';
+        basketItems = JSON.parse(basketItems);
+        var main = document.querySelector('main');
+    
+        var totalPrice = 0;
+    
+        basketItems.forEach((item) => {
+            var productSummary = document.createElement('div');
+            productSummary.classList.add('product-summary');
+            productSummary.innerHTML = `
+                <!-- แสดงข้อมูลสินค้า -->
+                <img src="${item.imagePath}" alt="${item.productName}">
+                <p>${item.productName}</p>
+                <p>Price: ${item.price} baht</p>
+            `;
+            main.appendChild(productSummary);
+    
+            // นับราคาทั้งหมด
+            totalPrice += item.price;
+        });
+    
+        // แสดงราคาทั้งหมดใน Text สรุปราคาทั้งหมด
+        var totalSummary = document.getElementById('total-summary');
+        var totalPriceElement = document.getElementById('total-price');
+        totalPriceElement.textContent = `Total Price: ${totalPrice} baht`;
+        var paymentMethod = document.getElementById('payment-method');
+    paymentMethod.addEventListener('change', function () {
+        var selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+        displayPaymentMethod(selectedPayment);
+    });
+
+    function displayPaymentMethod(payment) {
+        var paymentMethodSummary = document.getElementById('payment-method-summary');
+        paymentMethodSummary.textContent = `Payment Method: ${payment}`;
+    }
+    </script>
+
+</body>
+
+</html>

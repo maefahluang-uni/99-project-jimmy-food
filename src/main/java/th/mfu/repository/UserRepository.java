@@ -6,7 +6,10 @@ import th.mfu.domain.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 
-    @Override
-    <S extends User> S save(S user);
+    boolean existsByUsername(String username);
+
+    User findByUsername(String username);
+
+    User findByPassword(String password);
 
 }
