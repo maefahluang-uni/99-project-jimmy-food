@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Addcart",
+            "request": "launch",
+            "mainClass": "th.mfu.domain.Addcart",
+            "projectName": "project-xxxxx"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-App<project-xxxxx>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
