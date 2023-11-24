@@ -69,6 +69,16 @@
             color: #fff;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
+
+        #delivery-channel {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: space-around;
+        }
     </style>
 </head>
 
@@ -88,19 +98,46 @@
 
     <footer>
         <div id="payment-method">
-            <h2>Choose Payment Method</h2>
-            <label>
-                <input type="radio" name="payment" value="cash" checked>
-                Cash
-            </label>
-            <label>
-                <input type="radio" name="payment" value="credit-card">
-                Credit Card
-            </label>
+            <label for="payment">Payment Method:</label>
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <input type="radio" id="creditCard1" name="paymentMethod" value="creditCard1" onclick="selectCreditCard('1760 **** **** **48')">
+                    <label for="creditCard1">1760 **** **** **48</label>
+                </div>
+    
+                <div class="payment-method">
+                    <input type="radio" id="creditCard2" name="paymentMethod" value="creditCard2" onclick="selectCreditCard('6233 **** **** **57')">
+                    <label for="creditCard2">6233 **** **** **57</label>
+                </div>
+    
+                <div class="payment-method">
+                    <input type="radio" id="cash" name="paymentMethod" value="cash">
+                    <label for="cash">Cash</label>
+                </div>
+    
+                <div class="payment-method">
+                    <input type="radio" id="addCard" name="paymentMethod" value="addCard">
+                    <label for="addCard">Add a credit card</label>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+        <div id="back-button"><center>
+            <label for="delivery">Choose Delivery Address:</label>
+            <select id="delivery" name="delivery">
+                <option value="12/34 Chiang Rai 57100">12/34 Chiang Rai 57100</option>
+                <option value="740 Chiang Rai 57100">740 Chiang Rai 57100</option>
+                <option value="714 Chiang Rai 57100">714 Chiang Rai 57100</option>
+                <option value="232 Chiang Rai 57100">232 Chiang Rai 57100</option>
+                <option value="536 Chiang Rai 57100">536 Chiang Rai 57100</option>
+                <!-- Add more address options as needed -->
+            </select>
+          </center>
         </div>
         <a class="back-button" href="basket.html">Back to basket</a>
-        <a class="back-button" href="address.html">Seclect address</a>
-        <a class="back-button" href="waititng.html">Confirm</a>
+        
+        <a class="back-button" href="waiting.html">Confirm</a>
       
     </footer>
 
@@ -144,5 +181,3 @@
     </script>
 
 </body>
-
-</html>
