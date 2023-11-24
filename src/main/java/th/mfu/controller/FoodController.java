@@ -3,16 +3,17 @@ package th.mfu.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import th.mfu.domain.Cart;
 import th.mfu.domain.Item;
@@ -37,44 +38,67 @@ public class FoodController {
 
     @Autowired
     private OrderRepository orderRepo;
-
+    
     private Long userId;
 
     private Order order;
 
     private List<Cart> orderItems;
 
-    @RequestMapping("/game")
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @GetMapping
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
+    }
+
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
+    }
+
+    @PostMapping
+    public void saveUser(@RequestBody User user) {
+        userService.saveUser(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+    }
+}
+
+    @Service
+    public class UserService{
+    @Autowired
+    private UserRepository userRepo;
+
+    public List<User> getAllUsers() {
+        return (List<User>) userRepo.findAll();
+    }
+
+    public User getUserById(Long id) {
+        return userRepo.findById(id).orElse(null);
+    }
+
+    public void saveUser(User user) {
+        userRepo.save(user);
+    }
+
+    public void deleteUser(Long id) {
+        userRepo.deleteById(id);
+    }
+}
+
+    @GetMapping("/game")
     public String showGamePage() {
         return "index"; // This assumes that your HTML file is still named "index.html"
     }
-    @GetMapping("/signup")
-    public String showSignupPage() {
-        return "signup";
-    }
-    @GetMapping("/login")
-    public String showLoginPage() {
-        return "login";
-    }
-
-    // User
-
-    // to create User account
-    @GetMapping("/add-user-signup")
-    public String addBuyerSignupForm(Model model) {
-        model.addAttribute("user", new User());
-        return "user-signup-form";
-    }
-
-    // to save User account
-    @PostMapping("/save-user")
-    public String saveUser(@ModelAttribute("user") User user) {
-        userRepo.save(user);
-        return "redirect:/";
-    }
-
-    @Transactional
-    // to login for each type of user
 
     // to show all shops for the buyer to browse (same for showing discount, popular, and delivery free items)
     @GetMapping("/user-homepage")
