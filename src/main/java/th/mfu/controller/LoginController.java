@@ -26,7 +26,7 @@ public class LoginController {
         return "redirect:/login.html";
     }   
     @PostMapping("/login")
-    public String login(@ModelAttribute User user, Model model) {
+public String login(@ModelAttribute User user, Model model) {
         // Find the user by username
         User existingUser = userRepo.findByUsername(user.getUsername());
 

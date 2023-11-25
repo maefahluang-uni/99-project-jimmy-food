@@ -63,20 +63,58 @@
 </head>
 <body>
     <header>
-        <h1><u>Soponwich</u></h1>
+        <h1><u>name</u></h1>
     </header>
-    <section>
-        <h2>Name: </h2>
-        <p>Address: </p>
-        <p>Phone number:[-]</p>
-        <p>Points: [-]</p>
-        <p>Payment Methods: [-]</p>
-        <a class="back-button" href="riders.html">Drive With Jimmy</a>
-        <a class="back-button" href="Join Jimmy Shop.html">Join Jimmy Shop</a>
+<section>
+        
+        <h2>Name: <span id="name">-</span></h2>
+        <p>Address: <span id="address">-</span></p>
+        <p>Phone number: <span id="phoneNumber">-</span></p>
+        <p>Points: <span id="points">0</span></p>
+    
+        <button id="editButton" class="back-button">Edit Information</button>
+
+    <form id="editForm" style="display: none;" action="/updateProfile" method="post">
+        <label for="editName">Name:</label>
+        <input type="text" id="editName" name="editName" required><br>
+
+        <label for="editAddress">Address:</label>
+        <input type="text" id="editAddress" name="editAddress" required><br>
+
+        <label for="editPhoneNumber">Phone number:</label>
+        <input type="text" id="editPhoneNumber" name="editPhoneNumber" required><br>
+
+        <!-- Add other fields for editing if needed -->
+        <!-- Include the CSRF token input field -->
+
+        <input type="submit" value="Save">
+        <button type="button" onclick="cancelEdit()">Cancel</button>
+    </form>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('editButton').addEventListener('click', function () {
+            document.getElementById('editForm').style.display = 'block';
+            document.getElementById('name').style.display = 'none';
+            document.getElementById('address').style.display = 'none';
+            document.getElementById('phoneNumber').style.display = 'none';
+            // Add similar lines for other elements if needed
+        });
+
+        function cancelEdit() {
+            document.getElementById('editForm').style.display = 'none';
+            document.getElementById('name').style.display = 'inline';
+            document.getElementById('address').style.display = 'inline';
+            document.getElementById('phoneNumber').style.display = 'inline';
+            // Add similar lines for other elements if needed
+        }
+    });
+</script>
 
     </section>
     <footer>
-        <a class="back-button" href="basket.html">Go To Menu</a>
+        <a class="back-button" href="index.html">Go To Main</a>
     </footer>
 </body>
 </html>
