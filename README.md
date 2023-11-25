@@ -13,14 +13,14 @@ We developed a food delivery application for the convenience of users who come t
 
 **1.User สั่งอาหาร**
 1. User sign up/ login
-   -เลือกปุ่ม sign up/ login
-   -Drive with Jimmy, Join Jimmy Shop
+   - เลือกปุ่ม sign up/ login
+   - Drive with Jimmy, Join Jimmy Shop
    - กด go to main
 2. User กดเลือกหมวดหมู่ (Food,Drinks,Bakery,Mini game)
-   -สามารถเลือกร้าน
-   -เลือกเมนู
-   -เลือกPayment method ที่userสะดวก
-   -เลือกที่อยู่
-   -กดconfirm
+   - สามารถเลือกร้าน
+   - เลือกเมนู
+   - เลือกPayment method ที่userสะดวก
+   - เลือกที่อยู่
+   - กดconfirm
 3. User waiting order ที่กดสั่งไป
-   -User สามารถ chat/call กับ Riderได้ระหว่างที่รออาหาร
+   - User สามารถ chat/call กับ Riderได้ระหว่างที่รออาหาร
