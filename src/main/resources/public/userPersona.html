@@ -66,7 +66,21 @@
         <h1><u>name</u></h1>
     </header>
 <section>
-        
+    
+    <script>
+        function addToUserInfo(name, adderess, phoneNumber) {
+            // เก็บข้อมูลสินค้าที่ถูกเลือกไว้ใน localStorage
+      var userInfo = localStorage.getItem('userInfo') || '[]';
+      userInfo = JSON.parse(userInfo);
+      userInfo.push({ name, adderess, phoneNumber });
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+  
+  
+            // ลิ้งค์ไปยังหน้า basket.html
+            window.location.href = 'basket.html';
+        }
+    </script>
+
         <h2>Name: <span id="name">-</span></h2>
         <p>Address: <span id="address">-</span></p>
         <p>Phone number: <span id="phoneNumber">-</span></p>
@@ -74,7 +88,7 @@
     
         <button id="editButton" class="back-button">Edit Information</button>
 
-    <form id="editForm" style="display: none;" action="/updateProfile" method="post">
+    <form id="editForm" style="display: none;" th:action="/updateProfile" method="post">
         <label for="editName">Name:</label>
         <input type="text" id="editName" name="editName" required><br>
 

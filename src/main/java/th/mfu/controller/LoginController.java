@@ -1,15 +1,15 @@
 package th.mfu.controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import th.mfu.controller.FoodController.UserService;
 import th.mfu.domain.User;
 import th.mfu.repository.UserRepository;
 
-@RestController
+@Controller
 public class LoginController {
 
     @Autowired
@@ -26,18 +26,17 @@ public class LoginController {
         return "redirect:/login.html";
     }   
     @PostMapping("/login")
-public String login(@ModelAttribute User user, Model model) {
+    public String login(@ModelAttribute User user, Model model) {
         // Find the user by username
         User existingUser = userRepo.findByUsername(user.getUsername());
-
         // Check if the user exists and the password is correct (without encryption)
         if (existingUser != null && user.getPassword().equals(existingUser.getPassword())) {
-        return "userPersona";
-            //return "userPersona";
+        return "redirect:/userPersona.html";
+            
         } else {
         // Add a failure message to the model
         model.addAttribute("loginFailed", true);
-        return "login"; // Render the login page
+        return "redirect:/login.html"; // Render the login page
         }
        /*  model.addAttribute("loginMessage", "Login failed");
         return "login-failed";

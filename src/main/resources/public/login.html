@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" > <!-- xmlns:th="http://www.thymeleaf.org" > -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,9 +100,7 @@
         <img src="logo.png" alt="logo">
 
         <!-- Display the login failed message if it exists -->
-      <!-- Show the message only when loginFailed is true and an additional condition is met -->
-    <p th:if="${loginFailed and additionalCondition}" class="login-message">Incorrect username or password!</p>
-
+        <p th:if="${loginFailed}" class="login-message">Incorrect username or password!</p>
         <!-- You can style the message using CSS -->
         <style>
             .login-message {
@@ -113,8 +111,8 @@
         <form action="/login" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
-           
-            <a href="userPersona.html">Login</a>
+            
+            <button class="btn" >Login</button>
         </form>
 
         <!--  <button type="submit">Login</button> -->

@@ -15,7 +15,7 @@ public class ProfileController {
         // Check if a user is logged in
         if (loggedInUser != null) {
             // For simplicity, use a fixed user profile
-            model.addAttribute("name", "Demo User");
+            model.addAttribute("name");
             model.addAttribute("address", "123 Street, City");
             model.addAttribute("phoneNumber", "555-1234");
             model.addAttribute("points", "100");
