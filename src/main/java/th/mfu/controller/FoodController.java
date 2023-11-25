@@ -1,6 +1,5 @@
 package th.mfu.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,7 +128,7 @@ public String addToCart(@PathVariable Long id, Model model) {
         // Fetch user from session or database
         User user = userRepo.findById(userId).orElse(null); // Replace userId with the actual ID or parameter
         if (user != null) {
-            user.getCart().add(item);
+            user.getCartItems().add(item);
             userRepo.save(user);
         }
     }
@@ -140,19 +139,19 @@ public String addToCart(@PathVariable Long id, Model model) {
     @GetMapping("/view-cart/{id}")
     public String viewCart(@PathVariable Long id, Model model) {
         User cartUser = userRepo.findById(id).orElse(null);
-        if (cartUser != null && cartUser.getCart() != null) {
-            model.addAttribute("cartItems", cartUser.getCart());
+        if (cartUser != null && cartUser.getCartItems() != null) {
+            model.addAttribute("cartItems", cartUser.getCartItems());
         }
         return "view-cart";
     }
 
     // to make payment (to move items from cart to order)
-@GetMapping("/make-order/{id}")
+/* @GetMapping("/make-order/{id}")
 public String makeOrder(@PathVariable Long id, Model model) {
     User user = userRepo.findById(id).orElse(null);
     if (user != null && user.getCart() != null && !user.getCart().isEmpty()) {
         Order order = new Order();
-        List<Item> cartItems = user.getCart();
+        List<Item> cartItems = (List<Item>) user.getCart();
         List<Cart> orderItems = new ArrayList<>();
 
             for (Item cartItem : cartItems) {
@@ -163,19 +162,17 @@ public String makeOrder(@PathVariable Long id, Model model) {
 
             order.setOrderItems(orderItems);
             orderRepo.save(order);
-            user.setCart(cartItems);
-            user.getCart().clear();
+            user.setCart((Cart) cartItems);
+
             userRepo.save(user);
         }
 
         order.setOrderItems(orderItems);
         orderRepo.save(order);
-        user.setOrder(order);
-        user.getCart().clear();
         userRepo.save(user);
 
     return "thank-you-page";
 }
-
+ */
 
 }

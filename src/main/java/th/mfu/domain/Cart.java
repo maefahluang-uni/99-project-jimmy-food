@@ -1,11 +1,16 @@
 package th.mfu.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +27,9 @@ public class Cart {
     @ManyToOne
     @JoinColumn(name = "order_id", referencedColumnName = "id")
     private Order order;
+
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+    private List<Item> items = new ArrayList<>();
 
     // Constructors
 
@@ -70,5 +78,13 @@ public class Cart {
     }
 
     public void setItem(Item cartItem) {
+
+    }
+
+    public void add(Item item) {
+    }
+
+    public boolean isEmpty() {
+        return false;
     }
 }

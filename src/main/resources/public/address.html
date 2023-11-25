@@ -181,7 +181,7 @@
     </main>
 
     <footer>
-        <a class="back-button" href="basket.html">Back to Basket</a>
+        <a class="back-button" href="payment2.html">Go To  Receipt</a>
     </footer>
 
     <script>
@@ -210,6 +210,24 @@
     showSecondAddress.style.display = 'none';  // แนบบรรทัดนี้เพื่อซ่อนที่อยู่ที่ 2
 }
 
+function saveAndShowPayment() {
+            var name = document.getElementById('name').value;
+            var address = document.getElementById('address').value;
+            var city = document.getElementById('city').value;
+            var phone = document.getElementById('phone').value;
+
+            // Save data to Local Storage
+            var addressData = {
+                name: name,
+                address: address,
+                city: city,
+                phone: phone
+            };
+            localStorage.setItem('addressData', JSON.stringify(addressData));
+
+            // Show payment page
+            window.open("payment.html", "_blank");
+        }
     </script>
 </body>
 
