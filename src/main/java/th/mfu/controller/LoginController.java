@@ -4,13 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-=======
->>>>>>> f9d4a0c796e144dab5ad04913def49d284006783
 
 import th.mfu.controller.FoodController.UserService;
 import th.mfu.domain.User;
@@ -22,14 +19,6 @@ public class LoginController {
     @Autowired
     private UserRepository userRepo;
 
-<<<<<<< HEAD
-@PostMapping("/#")
-    public String handlePostRequest(@RequestBody UserRepository request) {
-        // Your logic here
-        return "your-view-name";
-    }
-}
-=======
     @Autowired
     private UserService userService;
 
@@ -59,4 +48,3 @@ public class LoginController {
         } */
     }
 }
->>>>>>> f9d4a0c796e144dab5ad04913def49d284006783
