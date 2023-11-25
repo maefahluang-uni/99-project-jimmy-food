@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,14 +98,27 @@
         <div id="logo">JIMMY FOOD</div>    
         <h2>Login</h2>
         <img src="logo.png" alt="logo">
-        <form action="#" method="post">
+
+        <!-- Display the login failed message if it exists -->
+        <p th:if="${loginFailed}" class="login-message">Incorrect username or password!</p>
+        <!-- You can style the message using CSS -->
+        <style>
+            .login-message {
+                color: red; /* Set the color based on success or failure */
+            }
+        </style>
+
+        <form action="/login" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
            
             <a href="user.html">Login</a>
         </form>
+
+        <!--  <button type="submit">Login</button> -->
+        
     </div>
- <footer>
- </footer>
+<footer>
+</footer>
 </body>
 </html>

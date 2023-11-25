@@ -10,8 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -22,23 +23,30 @@ public class User {
 
     @Column(unique = true)
     private String username;
+    private String email;
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Order> orders = new ArrayList<>();
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_id", referencedColumnName = "id")
+    private Cart cart;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<>();
+    
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Item> cart = new ArrayList<>();
+    private List<Item> cartItems = new ArrayList<>();
+
+    // Constructors, getters, and setters
 
     // Default constructor
-    public User() { 
-        // No need to initialize cart here
-    }
-     // Parameterized constructor
-    public User(String username, String password) {
+    public User() {}
+
+    // Parameterized constructor
+    public User(String username, String email, String password, Cart cart) {
         this.username = username;
+        this.email = email;
         this.password = password;
-        this.cart = new ArrayList<>();
+        this.cart = cart;
     }
 
     // Getters and setters
@@ -59,6 +67,14 @@ public class User {
         this.username = username;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -75,14 +91,11 @@ public class User {
         this.orders = orders;
     }
 
-    public List<Item> getCart() {
-        return cart;
+    public List<Item> getCartItems() {
+        return cartItems;
     }
 
-    public void setCart(List<Item> cart) {
-        this.cart = cart;
-    }
-
-    public void setOrder(Order order) {
+    public void setCartItems(List<Item> cartItems) {
+        this.cartItems = cartItems;
     }
 }
