@@ -1,14 +1,17 @@
+package th.mfu.controller;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProfileController {
 
-
     // Display the profile page
-    @PostMapping("/profile")
-    public String showProfile(Model model) {
+    @GetMapping("/profile")
+    public String showProfile(Model model, Object loggedInUser) {
         // Check if a user is logged in
         if (loggedInUser != null) {
             // For simplicity, use a fixed user profile
@@ -23,6 +26,7 @@ public class ProfileController {
         }
     }
 
+    // Handle the form submission for updating the profile
     @PostMapping("/updateProfile")
     public String updateProfile(@RequestParam String editName, @RequestParam String editAddress, @RequestParam String editPhoneNumber) {
         try {
@@ -35,5 +39,4 @@ public class ProfileController {
             return "error"; // Return an error page or redirect to an error page
         }
     }
-    
 }

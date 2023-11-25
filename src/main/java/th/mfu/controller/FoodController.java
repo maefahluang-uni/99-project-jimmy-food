@@ -14,12 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import th.mfu.domain.Cart;
 import th.mfu.domain.Item;
-import th.mfu.domain.Order;
 import th.mfu.domain.User;
 import th.mfu.repository.ItemRepository;
-import th.mfu.repository.OrderRepository;
 import th.mfu.repository.RestaurantRepository;
 import th.mfu.repository.UserRepository;
 
@@ -34,15 +31,8 @@ public class FoodController {
 
     @Autowired
     private ItemRepository itemRepo;
-
-    @Autowired
-    private OrderRepository orderRepo;
     
     private Long userId;
-
-    private Order order;
-
-    private List<Cart> orderItems;
 
 @RestController
 @RequestMapping("/api/users")

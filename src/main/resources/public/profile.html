@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Add your stylesheets, scripts, or other head elements here -->
+</head>
+<body>
+    <h1>User Profile</h1>
+
+    <div>
+        <p>Name: <span th:text="${name}"></span></p>
+        <p>Address: <span th:text="${address}"></span></p>
+        <p>Phone number: <span th:text="${phoneNumber}"></span></p>
+        <p>Points: <span th:text="${points}"></span></p>
+    </div>
+
+    <!-- Add additional elements or sections as needed -->
+
+    <a th:href="@{/updateProfile}" class="btn btn-primary">Edit Profile</a>
+
+    <!-- Add your footer or other common elements here -->
+
+</body>
+</html>
