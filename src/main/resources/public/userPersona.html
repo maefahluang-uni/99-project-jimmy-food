@@ -88,6 +88,8 @@
     
         <button id="editButton" class="back-button">Edit Information</button>
 
+        
+
     <form id="editForm" style="display: none;" th:action="/updateProfile" method="post">
         <label for="editName">Name:</label>
         <input type="text" id="editName" name="editName" required><br>
@@ -123,8 +125,53 @@
             document.getElementById('phoneNumber').style.display = 'inline';
             // Add similar lines for other elements if needed
         }
+
+        document.getElementById('editForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting traditionally
+
+            // Get the entered values from the form
+            var editedName = document.getElementById('editName').value;
+            var editedAddress = document.getElementById('editAddress').value;
+            var editedPhoneNumber = document.getElementById('editPhoneNumber').value;
+
+            // Update the displayed information
+            document.getElementById('name').innerText = editedName;
+            document.getElementById('address').innerText = editedAddress;
+            document.getElementById('phoneNumber').innerText = editedPhoneNumber;
+
+            // Update the localStorage with the edited data
+            var userInfo = localStorage.getItem('userInfo') || '[]';
+            userInfo = JSON.parse(userInfo);
+            var lastEntryIndex = userInfo.length - 1;
+            if (lastEntryIndex >= 0) {
+                userInfo[lastEntryIndex] = { name: editedName, adderess: editedAddress, phoneNumber: editedPhoneNumber };
+                localStorage.setItem('userInfo', JSON.stringify(userInfo));
+            }
+
+            // Hide the form and show the updated information
+            cancelEdit();
+        });
+
+        // Retrieve data from localStorage on page load
+        var userInfo = localStorage.getItem('userInfo');
+        if (userInfo) {
+            userInfo = JSON.parse(userInfo);
+            var userData = userInfo[userInfo.length - 1]; // Assuming you're interested in the last entry
+            // Update the displayed information
+            document.getElementById('name').innerText = userData.name;
+            document.getElementById('address').innerText = userData.adderess;
+            document.getElementById('phoneNumber').innerText = userData.phoneNumber;
+        }
+
+        // Update points when available in localStorage
+        var points = localStorage.getItem('points');
+        if (points) {
+            document.getElementById('points').innerText = points;
+        }
     });
 </script>
+
+
 
     </section>
     <footer>
