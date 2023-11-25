@@ -91,6 +91,9 @@
             document.body.style.backgroundSize = 'cover';
             document.body.style.backgroundRepeat = 'no-repeat';
         });
+            function redirectToUserPersona() {
+            window.location.href = "userPersona.html";
+    }
     </script>
 </head>
 <body>
@@ -107,14 +110,14 @@
                 color: red; /* Set the color based on success or failure */
             }
         </style>
-
-        <form action="/login" method="post">
+        
+        <form action="/login" method="post" onsubmit="redirectToUserPersona(); return false;">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
            
-            <a href="user.html">Login</a>
+            <button type="submit" class="button">Log in</button>
         </form>
-
+        
         <!--  <button type="submit">Login</button> -->
         
     </div>

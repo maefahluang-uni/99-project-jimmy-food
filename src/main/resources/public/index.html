@@ -51,8 +51,9 @@
         } 
 
         #proImage {
-           width: 50px; /* ปรับขนาดรูปตามต้องการ */
-           height: 50px /* ให้ความสูงปรับตามอัตราส่วน */
+            width: 50px;
+            height: auto;
+            margin-right: 8px; /* ระยะห่างระหว่างรูปและข้อความ */
         }
 
         #searchBox {
@@ -60,6 +61,17 @@
            display: block;
         }
 
+        .proContainer {
+           display: flex;
+           align-items: center;
+        }
+
+        .proText {
+           font-size: 14px; /* ปรับขนาดข้อความตามต้องการ */
+           color: #000000; /* สีข้อความ */
+           margin:0;
+        }
+  
         a {
             color: #ede6e6; /* Change this to your desired color code or name */
             text-decoration: none; /* Remove underlines by default */
@@ -69,12 +81,11 @@
             text-decoration: underline; /* Add underlines on hover */
         }
     </style>
-   <!-- <a href="signup.html">Sign Up </a>
-    <a href="login.html">Log In</a>
-    <p style="font-size: 120px;"></p>-->
-    
-    <img src="pro 2.avif" alt="" id="proImage">
-    
+   
+    <a href="userPersona.html" class="proContainer">
+    <img src="pro1_2.png" alt="" id="proImage">
+    <span class="proText">soponwich</span>
+    </a>
     
 </header>
 
