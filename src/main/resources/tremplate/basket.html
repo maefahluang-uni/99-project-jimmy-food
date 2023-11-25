@@ -84,14 +84,42 @@
 
     <footer>
         <a class="back-button" href="res2.html">Back to menu</a>
-        <a class="back-button" href="payment2.html">Confirm</a>
+        <a class="back-button" href="payment2.html" onclick="confirmOrder()">Confirm</a>
        
     </footer>
    
     
     <script>
+
+function confirmOrder() {
+        // Your logic to send a request to "/confirmOrder" endpoint
+        // You can use JavaScript to make an AJAX request or submit a form
+        // Or you can use Thymeleaf to create a form and submit it
+
+        // Example using fetch API
+        fetch('/confirmOrder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ /* Your data if needed */ })
+        })
+        .then(response => {
+            if (response.ok) {
+                // Redirect or show success message
+                window.location.href = '/success.html';
+            } else {
+                // Handle error
+                console.error('Failed to confirm order');
+            }
+        })
+        .catch(error => {
+            console.error('Error confirming order:', error);
+        });
+    }
+    
    // ดึงข้อมูลสินค้าจาก localStorage และแสดงที่นี่
-   var basketItems = localStorage.getItem('basketItems') || '[]';
+         var basketItems = localStorage.getItem('basketItems') || '[]';
         basketItems = JSON.parse(basketItems);
         var main = document.querySelector('main');
 
