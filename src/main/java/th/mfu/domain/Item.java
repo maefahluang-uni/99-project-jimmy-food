@@ -12,10 +12,14 @@ public class Item {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private Long id;
-
     private String name;
     private Double price;
+
+    @ManyToOne
+    @JoinColumn(name = "cart_id", nullable = false)
+    private Cart cart;
 
     @ManyToOne
     @JoinColumn(name = "restaurant_id") // adjust the column name based on your database schema
