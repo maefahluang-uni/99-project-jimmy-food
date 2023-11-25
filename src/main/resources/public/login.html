@@ -100,7 +100,9 @@
         <img src="logo.png" alt="logo">
 
         <!-- Display the login failed message if it exists -->
-        <p th:if="${loginFailed}" class="login-message">Incorrect username or password!</p>
+      <!-- Show the message only when loginFailed is true and an additional condition is met -->
+    <p th:if="${loginFailed and additionalCondition}" class="login-message">Incorrect username or password!</p>
+
         <!-- You can style the message using CSS -->
         <style>
             .login-message {
