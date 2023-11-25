@@ -11,11 +11,11 @@ We developed a food delivery application for the convenience of users who come t
 | 6531503087 |Soponwich Somboonyousakul| https://github.com/soponwich087        |
 | 6531503124 | Sayawee Wisaiyat        | https://github.com/6531503124sayawee   |
 
-**1.User สั่งอาหาร**
+**1.User ใช้ระบบสั่งอาหาร**
 1. User sign up/ login
    - เลือกปุ่ม sign up/ login
-   - Drive with Jimmy, Join Jimmy Shop
-   - กด go to main
+   - Drive with Jimmy เพื่อสมัครเป็นไรเดอร์, Join Jimmy Shop เพื่อสมัครเป็นร้านค้าในระบบ
+   - กด go to main page
 2. User กดเลือกหมวดหมู่ (Food,Drinks,Bakery,Mini game)
    - สามารถเลือกร้าน
    - เลือกเมนู
