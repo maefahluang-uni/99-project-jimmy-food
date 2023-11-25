@@ -35,11 +35,31 @@
 
     <form action="" class="search-form">
     
-        <input type="search" name="" placeholder="Searching for what you looking for" id="searchBox">
+        <input type="search" name="" placeholder="Searching for what you looking for" id="searchBox" >
         <label for="searchBox" class="fas fa-search"></label>
         
     </form>
     <style>
+        .header {
+           display: flex;
+           align-items: center;
+           justify-content: space-between; /* จัดตำแหน่งให้อยู่ทางด้านขวา */
+        }
+
+        #searchBox {
+            margin-right: 8px;
+        } 
+
+        #proImage {
+           width: 50px; /* ปรับขนาดรูปตามต้องการ */
+           height: auto; /* ให้ความสูงปรับตามอัตราส่วน */
+        }
+
+        #searchBox {
+           margin-right: 8px;
+           display: block;
+        }
+
         a {
             color: #ede6e6; /* Change this to your desired color code or name */
             text-decoration: none; /* Remove underlines by default */
@@ -49,9 +69,13 @@
             text-decoration: underline; /* Add underlines on hover */
         }
     </style>
-    <a href="signup.html">Sign Up </a>
+   <!-- <a href="signup.html">Sign Up </a>
     <a href="login.html">Log In</a>
-        <p style="font-size: 120px;"></p>
+    <p style="font-size: 120px;"></p>-->
+    
+    <img src="pro2.avif" alt="Pro 2 Image" id="proImage">
+    
+    
 </header>
 
 <!-- header section ends -->
