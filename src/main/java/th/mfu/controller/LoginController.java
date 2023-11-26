@@ -25,6 +25,7 @@ public class LoginController {
         // Redirect to a success page or login page
         return "redirect:/login.html";
     }   
+    
     @PostMapping("/login")
     public String login(@ModelAttribute User user, Model model) {
         // Find the user by username

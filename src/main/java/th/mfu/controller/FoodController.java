@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import th.mfu.domain.Cart;
 import th.mfu.domain.Item;
+import th.mfu.domain.Review;
 import th.mfu.domain.User;
 import th.mfu.repository.CartRepository;
 import th.mfu.repository.ItemRepository;
 import th.mfu.repository.RestaurantRepository;
+import th.mfu.repository.ReviewRepository;
 import th.mfu.repository.UserRepository;
 
 @Controller
@@ -106,6 +108,17 @@ public class UserController {
 
     public void deleteUser(Long id) {
         userRepo.deleteById(id);
+    }
+}
+
+
+    @Service
+    public class ReviewService{
+    @Autowired
+    private ReviewRepository reviewRepo;
+
+     public void saveReview(Review review) {
+        reviewRepo.save(review);
     }
 }
 
