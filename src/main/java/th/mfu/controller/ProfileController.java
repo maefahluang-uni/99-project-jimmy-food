@@ -36,7 +36,7 @@ public class ProfileController {
         currentUser.setAddress(updatedUser.getAddress());
         currentUser.setPhoneNumber(updatedUser.getPhoneNumber());
 
-        // Save the updated user to the database
+        // Save the updated user to the databaseee
         userRepository.save(currentUser);
 
         return "redirect:/profile";
