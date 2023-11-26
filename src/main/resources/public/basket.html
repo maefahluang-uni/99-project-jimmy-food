@@ -92,6 +92,11 @@
     <script>
 
 function confirmOrder() {
+    var basketItems = localStorage.getItem('basketItems') || '[]';
+    var orderData = {
+        // Add relevant data for the order
+        
+    };
         // Your logic to send a request to "/confirmOrder" endpoint
         // You can use JavaScript to make an AJAX request or submit a form
         // Or you can use Thymeleaf to create a form and submit it

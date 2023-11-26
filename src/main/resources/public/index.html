@@ -31,16 +31,47 @@
             font-size: 35px; 
             text-decoration: none; 
         }
-
     </style>
 
     <form action="" class="search-form">
     
-        <input type="search" name="" placeholder="Searching for what you looking for" id="searchBox">
+        <input type="search" name="" placeholder="Searching for what you looking for" id="searchBox" >
         <label for="searchBox" class="fas fa-search"></label>
         
     </form>
     <style>
+        .header {
+           display: flex;
+           align-items: center;
+           justify-content: space-between; /* จัดตำแหน่งให้อยู่ทางด้านขวา */
+        }
+
+        #searchBox {
+            margin-right: 8px;
+        } 
+
+        #proImage {
+            width: 50px;
+            height: auto;
+            margin-right: 8px; /* ระยะห่างระหว่างรูปและข้อความ */
+        }
+
+        #searchBox {
+           margin-right: 8px;
+           display: block;
+        }
+
+        .proContainer {
+           display: flex;
+           align-items: center;
+        }
+
+        .proText {
+           font-size: 14px; /* ปรับขนาดข้อความตามต้องการ */
+           color: #000000; /* สีข้อความ */
+           margin:0;
+        }
+  
         a {
             color: #ede6e6; /* Change this to your desired color code or name */
             text-decoration: none; /* Remove underlines by default */
@@ -50,9 +81,12 @@
             text-decoration: underline; /* Add underlines on hover */
         }
     </style>
-    <a href="signup.html">Sign Up </a>
-    <a href="login.html">Log In</a>
-        <p style="font-size: 120px;"></p>
+   
+    <a href="userPersona.html?name=-" class="proContainer">
+    <img src="pro1_2.png" alt="" id="proImage">
+    <span class="proText" id="name">-</span>
+    </a>
+    
 </header>
 
 <!-- header section ends -->
@@ -382,7 +416,7 @@
 
 <section class="contact" id="contact">
 
-    <h1 class="heading"> <span>Review</span> Here</h1>
+    <h1 class="heading"> <span>contact</span> us </h1>
 
     <form action="" data-aos="zoom">
 
@@ -489,8 +523,8 @@
         <div class="box" data-aos="fade-up">
             <h3>our branches</h3>
             <a href="foodmain.html"> <i class="fas fa-hamburger"></i> FOOD </a>
-            <a href="drinks.html"><i class="fas fa-cocktail"></i> DRINKS </a>
-            <a href="bakery.html"> <i class="fas fa-bread-slice"></i> BAKERY </a>
+            <a href="#"> <i class="fas fa-cocktail"></i> DRINKS </a>
+            <a href="#"> <i class="fas fa-bread-slice"></i> BAKERY </a>
             <a href="minigame/game.html"> <i class="fas fa-gamepad"></i> MINI GAMES </a> 
         </div>
 
