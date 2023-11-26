@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Address</title>
+    <style>
+        body {
+            background-color: #D788D7;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            color: #D788D7;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+       
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        #address-form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        #address-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #address-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        #show-address {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        #show-second-address {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 8px;
+            background-color: #fff;
+            color: #D788D7;
+        }
+
+        .back-button {
+            display: block;
+            margin: 15px;
+            padding: 10px;
+            background-color: #fff;
+            color: #D788D7;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 15px;
+            border: 2px solid #D788D7;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #D788D7;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #show-address,
+        #show-second-address {
+            display: none;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+
+        input {
+            margin-bottom: 15px;
+            padding: 8px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #fff;
+            color: #D788D7;
+            border: 2px solid #D788D7;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: #D788D7;
+            color: #fff;
+        }
+
+        #show-second-address {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><u>Select Address</u></h1>
+    </header>
+
+    <main>
+        <form id="address-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" required>
+
+
+            <button type="button" onclick="showAddress()">Confirm</button>
+            
+        </form>
+
+        <div id="show-address">
+            <h2>Selected Address</h2>
+            <p id="display-name"></p>
+            <p id="display-address"></p>
+            <p id="display-city"></p>
+            <p id="display-phone"></p>
+        </div>
+
+        <div id="show-second-address">
+            <h2>Selected Second Address</h2>
+            <p id="display-second-name"></p>
+            <p id="display-second-address"></p>
+            <p id="display-second-city"></p>
+            <p id="display-second-phone"></p>
+        </div>
+        
+    </main>
+
+    <footer>
+        <a class="back-button" href="payment2.html">Go To  Receipt</a>
+    </footer>
+
+    <script>
+        function showAddress() {
+    var name = document.getElementById('name').value;
+    var address = document.getElementById('address').value;
+    var city = document.getElementById('city').value;
+    var phone = document.getElementById('phone').value;
+
+    var displayName = document.getElementById('display-name');
+    var displayAddress = document.getElementById('display-address');
+    var displayCity = document.getElementById('display-city');
+    var displayPhone = document.getElementById('display-phone');
+
+    displayName.textContent = `Name: ${name}`;
+    displayAddress.textContent = `Address: ${address}`;
+    displayCity.textContent = `City: ${city}`;
+    displayPhone.textContent = `Phone: ${phone}`;
+
+    var addressForm = document.getElementById('address-form');
+    var showAddress = document.getElementById('show-address');
+    var showSecondAddress = document.getElementById('show-second-address');
+
+    addressForm.style.display = 'none';
+    showAddress.style.display = 'block';
+    showSecondAddress.style.display = 'none';  // แนบบรรทัดนี้เพื่อซ่อนที่อยู่ที่ 2
+}
+
+function saveAndShowPayment() {
+            var name = document.getElementById('name').value;
+            var address = document.getElementById('address').value;
+            var city = document.getElementById('city').value;
+            var phone = document.getElementById('phone').value;
+
+            // Save data to Local Storage
+            var addressData = {
+                name: name,
+                address: address,
+                city: city,
+                phone: phone
+            };
+            localStorage.setItem('addressData', JSON.stringify(addressData));
+
+            // Show payment page
+            window.open("payment.html", "_blank");
+        }
+    </script>
+</body>
+
+</html>

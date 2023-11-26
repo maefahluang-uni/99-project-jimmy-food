@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering Payment - JIMMYFOOD</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fff; /* White background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height of the viewport */
+        }
+
+        .payment-section {
+            background-color: #9D65CA; /* Purple color for the payment section */
+            border-radius: 40px; /* Rounded corners for the section */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for a card-like effect */
+            padding: 20px;
+            width: 500%; /* Adjust the width as needed */
+            max-width: 1000px; /* Set a maximum width if desired */
+            text-align: center;
+            color: #fff; /* Text color for better contrast */
+            position: relative; /* Relative positioning for the JIMMYFOOD text */
+        }
+
+        #jimmyfood-text img {
+            width: 50px; /* Adjust the width of the logo image */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 10px;
+        }
+
+        #jimmyfood-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        #mini-game-icon {
+            width: 50px; 
+            height: auto; 
+        }
+
+        #delivery-channel {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        #food-item {
+            margin-bottom: 20px;
+        }
+
+        #food-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 30px; /* Rounded corners for the image */
+            margin-bottom: 10px;
+        }
+
+        #food-name,
+        #payment-method {
+            font-size: 18px; /* ปรับขนาดตัวอักษรของชื่ออาหาร */
+            margin-bottom: 10px;
+            /* ปรับขนาดตัวอักษรของชื่ออาหาร */
+        }
+
+        #food-price {
+            font-size: 16px; /* ปรับขนาดตัวอักษรของราคา.... */
+            margin-bottom: 20px;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .payment-method {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="payment-section">
+        <!-- Mini-game icon -->
+        <div id="mini-game-icon">
+            <img src="https://cdn.discordapp.com/attachments/1154074771164762223/1174335548828164136/20-transformed.png?ex=65673834&is=6554c334&hm=4bdf27f8404c3f4728072fcf429bdd3b9fd4b257dc18e696e5a39c4bd7143070&" alt="Mini Game Icon"height="30px"width="30px">
+        </div>
+
+        <div id="jimmyfood-text">
+            <img src="https://cdn.discordapp.com/attachments/1154074771164762223/1173981560123424778/11.png?ex=6565ee87&is=65537987&hm=2bff8dbe182bca8d37e7c52553e9aa912915cecb96fc209a2c7ba8625adc96be&" alt="JimmyFood Logo"width ="10px" height="10px">
+            JIMMYFOOD
+        </div>
+
+        <!-- Delivery channel selection -->
+        <div id="delivery-channel">
+            <label for="delivery">Choose Delivery Address:</label>
+            <select id="delivery" name="delivery">
+                <option value="12/34 Chiang Rai 57100">12/34 Chiang Rai 57100</option>
+                <option value="740 Chiang Rai 57100">740 Chiang Rai 57100</option>
+                <option value="714 Chiang Rai 57100">714 Chiang Rai 57100</option>
+                <option value="232 Chiang Rai 57100">232 Chiang Rai 57100</option>
+                <option value="536 Chiang Rai 57100">536 Chiang Rai 57100</option>
+                <!-- Add more address options as needed -->
+            </select>
+        </div>
+        <!-- Selected food item with picture, name, price, and quantity -->
+        <div id="food-item">
+            <img src="https://images-ext-1.discordapp.net/external/lE8DYhAxft_mjZQB7b8i4keCtqtEDzghsxPvWsmZRQQ/https/img.kapook.com/u/surauch/movie3/koa-soy-open.jpg?width=750&height=562" alt="Food Image" id="food-image">
+            <p id="food-name">Khao Soi Chicken</p>
+            <p id="food-price">Price: ฿40.00</p>
+            <p id="food-quantity">Quantity: 1</p>
+            <!-- Add buttons to remove and add quantity -->
+            <button onclick="removeFoodItem()">Remove Item</button>
+            <button onclick="increaseQuantity()">+</button>
+            <button onclick="decreaseQuantity()">-</button>
+        </div>
+
+        <button onclick="confirmPayment()">CONFIRM</button>
+
+
+        <script>
+            // เพิ่มฟังก์ชันสำหรับการยืนยันการชำระเงิน
+            function confirmPayment() {
+                // ทำสิ่งที่คุณต้องการเมื่อกดปุ่ม CONFIRM
+                alert('Payment Confirmed!');
+                // สามารถเพิ่มขั้นตอนเพิ่มเติมที่นี่
+            }
+        
+            // เพิ่มฟังก์ชันสำหรับการเลือกบัตรเครดิต
+            function selectCreditCard(cardNumber) {
+                alert('Selected Credit Card: ' + cardNumber);
+                // ทำสิ่งที่คุณต้องการเมื่อเลือกบัตรเครดิต
+            }
+        
+            // Initial values
+            var quantity = 1;
+            var pricePerUnit = 40.00; // Set the initial price per unit
+        
+            // Function to remove the food item
+            function removeFoodItem() {
+                var foodItem = document.getElementById('food-item');
+                foodItem.parentNode.removeChild(foodItem);
+                updateTotalPrice(); // Update the total price after removing an item
+            }
+        
+            // Function to increase quantity
+            function increaseQuantity() {
+                quantity++;
+                document.getElementById('food-quantity').innerHTML = 'Quantity: ' + quantity;
+                updateTotalPrice(); // Update the total price after increasing quantity
+            }
+        
+            // Function to decrease quantity
+            function decreaseQuantity() {
+                if (quantity > 1) {
+                    quantity--;
+                    document.getElementById('food-quantity').innerHTML = 'Quantity: ' + quantity;
+                    updateTotalPrice(); // Update the total price after decreasing quantity
+                }
+            }
+        
+            // Function to update the total price
+            function updateTotalPrice() {
+                var totalPrice = quantity * pricePerUnit;
+                document.getElementById('food-price').innerHTML = 'Price: ฿' + totalPrice.toFixed(2);
+            }
+        </script>
+
+        <!-- Payment methods -->
+    <div id="payment-method">
+        <label for="payment">Payment Method:</label>
+        <div class="payment-methods">
+            <div class="payment-method">
+                <input type="radio" id="creditCard1" name="paymentMethod" value="creditCard1" onclick="selectCreditCard('1760 **** **** **48')">
+                <label for="creditCard1">1760 **** **** **48</label>
+            </div>
+
+            <div class="payment-method">
+                <input type="radio" id="creditCard2" name="paymentMethod" value="creditCard2" onclick="selectCreditCard('6233 **** **** **57')">
+                <label for="creditCard2">6233 **** **** **57</label>
+            </div>
+
+            <div class="payment-method">
+                <input type="radio" id="cash" name="paymentMethod" value="cash">
+                <label for="cash">Cash</label>
+            </div>
+
+            <div class="payment-method">
+                <input type="radio" id="addCard" name="paymentMethod" value="addCard">
+                <label for="addCard">Add a credit card</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+            
+</html>

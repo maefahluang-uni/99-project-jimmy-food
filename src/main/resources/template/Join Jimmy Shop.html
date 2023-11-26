@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Join Jimmy Shop</title>
     <style>
         body {
             margin: 0;
@@ -13,14 +13,14 @@
             justify-content: center;
             flex-direction: column;
             height: 100vh;
-            background-color: #D788D7; /* สีพื้นหลังของหน้า login */
-            color: #fff; /* สีของตัวอักษร */
-            font-family: Arial, sans-serif;
+            background-color: #D788D7; /* เปลี่ยนสีพื้นหลังของหน้า login */
+            color: #000000; /* สีของตัวอักษร */
+            font-family: 'Arial', sans-serif;
         }
         #logo {
             font-family: 'Lilita One';
-            font-size: 36px;
-            color: #2A3D67;
+            font-size: 48px; /* เพิ่มขนาดตัวอักษรของโลโก้ */
+            color: #3D527F; /* เปลี่ยนสีของตัวอักษรในโลโก้ */
             position: absolute;
             top: 20px;
             left: 20px;
@@ -35,28 +35,30 @@
             align-items: center;
         }
         .login-container {
-            background-color: #fff; /* สีพื้นหลังของกล่อง login */
-            padding: 20px;
+            background-color: #F3F3F3; /* เปลี่ยนสีพื้นหลังของกล่อง login */
+            padding: 30px; /* เพิ่มการเว้นระยะห่างรอบขอบของกล่อง */
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 50px; /* ปรับระยะห่างด้านบน */
         }
 
         input {
-            width: 100%;
-            padding: 10px;
+            width: 70%; /* ปรับความกว้างของ input */
+            padding: 15px; /* เพิ่มการเว้นระยะห่างรอบขอบของ input */
             margin-bottom: 20px;
             box-sizing: border-box;
         }
 
         button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #435a8a; /* สีพื้นหลังของปุ่ม */
-            color: #fff; /* สีของตัวอักษรในปุ่ม */
+            width: 70%; /* ปรับความกว้างของ button */
+            padding: 15px 30px; /* เพิ่มขนาดของปุ่ม */
+            font-size: 20px; /* เพิ่มขนาดตัวอักษรในปุ่ม */
+            background-color: #3D527F; /* เปลี่ยนสีพื้นหลังของปุ่ม */
+            color: #fff;
             border: none;
             border-radius: 20px;
             cursor: pointer;
@@ -64,13 +66,13 @@
         }
 
         button:hover {
-            background-color: #1A2B4C; /* สีพื้นหลังของปุ่มเมื่อ hover */
+            background-color: #1A2B4C;
         }
 
         img {
-            width: 55%;
-            height: 60%; /* ปรับขนาดของรูปภาพ */
-            margin-top: -90px; /* ปรับการจัดวางรูปภาพ */
+            width: 50%; /* ปรับขนาดของรูปภาพ */
+            height: auto;
+            margin-top: -50px; 
             z-index: 1;
         }
     </style>
@@ -91,42 +93,21 @@
             document.body.style.backgroundSize = 'cover';
             document.body.style.backgroundRepeat = 'no-repeat';
         });
-            function redirectToUserPersona() {
-            window.location.href = "userPersona.html";
-    }
     </script>
 </head>
 <body>
     <div class="login-container">
         <div id="logo">JIMMY FOOD</div>    
-        <h2>Login</h2>
-        <img src="logo.png" alt="logo">
-
-        <!-- Display the login failed message if it exists -->
-        
-        <!-- You can style the message using CSS -->
-        <style>
-            .login-message {
-                color: red; /* Set the color based on success or failure */
-            }
-        </style>
-        
-        <form action="/login" method="post" onsubmit="redirectToUserPersona(); return false;">
+        <h2>Join Jimmy Shop</h2>
+        <img src="https://media.discordapp.net/attachments/1154074771164762223/1173981560123424778/11.png?ex=656f2907&is=655cb407&hm=3ad16778af30c699564b208a758bbf4ad993bc726b2491eb5a0b167badb4c76b&=&format=webp&width=491&height=547" alt="logo">
+        <form action="#" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
-<<<<<<<< HEAD:src/main/resources/public/tremplate/login.html
-           
-            <button type="submit" class="button">Log in</button>
-========
-            
-            <button class="btn" >Login</button>
->>>>>>>> refs/remotes/origin/main:src/main/resources/template/login.html
+            <button type="submit">Sign Up</button>
         </form>
-        
-        <!--  <button type="submit">Login</button> -->
-        
     </div>
-<footer>
-</footer>
+    <footer>
+        <!-- เพิ่มข้อมูลในส่วนท้ายของหน้าเว็บตามต้องการ -->
+    </footer>
 </body>
 </html>

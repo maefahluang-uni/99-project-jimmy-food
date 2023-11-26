@@ -8,8 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,13 +19,13 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+<<<<<<< HEAD
     private Long orderId;
     private String name;
+=======
+>>>>>>> refs/remotes/origin/main
     private int quantity;
-
-    @ManyToOne
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
-    private Order order;
+    private int total_price;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
     private List<Item> items = new ArrayList<>();
@@ -42,13 +40,27 @@ public class Cart {
     }
 
     // Parameterized constructor
+<<<<<<< HEAD
     public Cart(String name, int quantity, Long orderId) {
         this.name = name;
         this.quantity = quantity;
         this.orderId = orderId;
+=======
+    public Cart( int quantity, int total_price) {
+        this.quantity = quantity;
+        this.total_price = total_price;
+>>>>>>> refs/remotes/origin/main
     }
 
     // Getters and setters
+
+    public int getTotalPrice() {
+        return total_price;
+    }
+
+    public void setTotalPrice(Long id) {
+        this.id = id;
+    }
 
     public Long getId() {
         return id;
@@ -66,28 +78,12 @@ public class Cart {
         this.orderId = orderId;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getQuantity() {
         return quantity;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
     }
 
     public void setItem(Item cartItem) {
@@ -99,5 +95,14 @@ public class Cart {
 
     public boolean isEmpty() {
         return false;
+    }
+
+    // Method to calculate the total price based on items in the cart
+    public int calculateTotalPrice() {
+        int total_price = 0;
+        for (Item item : items) {
+            total_price += item.getPrice();
+        }
+        return total_price;
     }
 }

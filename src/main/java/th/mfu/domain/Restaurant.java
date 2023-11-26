@@ -18,10 +18,6 @@ public class Restaurant {
     private String name;
     private String password;
 
-    //Add relationships with orders and items
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
-    private List<Order> orders;
-
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Item> items;
 
@@ -63,13 +59,6 @@ public class Restaurant {
         this.password = password;
     }
 
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
 
     public List<Item> getItems() {
         return items;

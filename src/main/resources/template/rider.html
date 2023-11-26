@@ -13,66 +13,64 @@
             justify-content: center;
             flex-direction: column;
             height: 100vh;
-            color: #fff;
-            font-family: Arial, sans-serif;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
         }
 
         #logo {
-            font-family: 'Lilita One';
+            font-family: 'Lilita One', sans-serif;
             font-size: 36px;
-            color: #2A3D67;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 2;
-            background-color: #ffffff;
-            padding: 20px;
+            color: #fff;
+            background-color: #6C3483;
+            padding: 10px 20px;
             border-radius: 10px;
+            margin-bottom: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .signup-container {
-            background-color: #ffffff;
+            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        input {
+            max-width: 400px;
             width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
             box-sizing: border-box;
         }
 
-        img {
-            width: 12%;
-            height: 25%;
-            margin-top: -350px;
-            z-index: 1;
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
         }
 
         button {
-            padding: 10px 20px;
+            width: 100%;
+            padding: 10px;
             font-size: 18px;
             background-color: #6C3483;
             color: #fff;
             border: none;
-            border-radius: 20px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
+            outline: none;
         }
 
         button:hover {
             background-color: #4A235A;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #777;
         }
     </style>
     <script>
@@ -91,40 +89,26 @@
             var img = new Image();
             img.src = selectedImage;
 
-
-            img.onload = function (){
-            document.body.style.backgroundImage = 'url(' + selectedImage + ')';
-            document.body.style.backgroundSize = 'cover';
-            document.body.style.backgroundRepeat = 'no-repeat';
+            img.onload = function () {
+                document.body.style.backgroundImage = 'url(' + selectedImage + ')';
+                document.body.style.backgroundSize = 'cover';
+                document.body.style.backgroundRepeat = 'no-repeat';
             }
         });
-        function redirectToUserPersona() {
-            window.location.href = "userPersona.html";
-    }
     </script>
 </head>
 <body>
-    <div id="logo">JIMMY FOOD</div>
-    <img src="logo.png" alt="">
+    <div id="logo">DRIVE WITH JIMMY FOOD</div>
     <div class="signup-container">
         <h2>Sign Up</h2>
-        <form action="/login" method="post" onsubmit="redirectToUserPersona(); return false;">
+        
+        <form action="#" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
-            <div></div>
-<<<<<<<< HEAD:src/main/resources/tremplate/signup.html
-<<<<<<< HEAD:src/main/resources/tremplate/signup.html
-            <button type="submit" class="button">Sign up</button>
-=======
             <button type="submit">Sign Up</button>
->>>>>>> ec3cea9a31bf502861e0b8cf18eca0b79f5d5d02:src/main/resources/public/signup.html
-========
-            <button type="submit">Sign Up</button>
->>>>>>>> refs/remotes/origin/main:src/main/resources/template/signup.html
         </form>
     </div>
-<footer>
-</footer>
+    <footer>&copy; 2023 Drive with Jimmy Food</footer>
 </body>
 </html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้านขายข้าว</title>
+    <style>
+        body {
+            background-color: #D788D7;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            color: #D788D7;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+        }
+        .menu-button {
+            display: block;
+            margin: 15px;
+            padding: 10px;
+            background-color: #fff;
+            color: #D788D7;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 15px; /* เพิ่มความมนให้กับมุม */
+            border: 2px solid #D788D7; /* เพิ่มขอบและสี */
+            transition: background-color 0.3s, color 0.3s; /* เพิ่ม transition เพื่อให้มีการเปลี่ยนสีอย่างสวยงาม */
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 8px;
+            background-color: #fff;
+            color: #D788D7;
+        }
+        .menu-button:hover {
+            background-color: #D788D7;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* เพิ่มเงาเมื่อ hover */
+        }
+
+        .back-button {
+            display: block;
+            margin: 15px;
+            padding: 10px;
+            background-color: #fff;
+            color: #D788D7;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 15px;
+            border: 2px solid #D788D7;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #D788D7;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+
+        <h1><u>Khao Soi 100 Years, Ta Hong Recipe</u></h1>
+
+    </header>
+
+    <section>
+      <button class="menu-button" onclick="addToBasket('Khao Soi Chicken', 40, 'ข้าวซอยไก่.jpg')">
+          <div class="menu-item">
+
+            <img src="ข้าวซอยไก่.jpg" alt="ข้าาซอยไก่" width="640" height="432">
+            <h2>Khao Soi Chicken</h2>
+            <p>price: 40 baht</p>
+            <a href="basket.html"></a>
+
+          </div>
+        </button>
+
+        <button class="menu-button"onclick="addToBasket('Khao Soi Pork', 50, 'ข้าวซอยหมู.jpg')">
+          <div class="menu-item">
+
+            <img src="ข้าวซอยหมู.jpg" alt="ข้าวซอยหมู" width="640" height="432">
+            <h2>Khao Soi Pork</h2>
+            <p>price: 50 baht</p>
+            <a href="basket.html"></a>
+
+           </div>
+        </button>
+
+        <button class="menu-button"onclick="addToBasket('Khao Soi Beef', 60,'ข้าวซอยเนื้อ.jpg')">
+          <div class="menu-item">
+
+            <img src="ข้าวซอยเนื้อ.jpg" alt="ข้าวซอยเนื้อ" width="640" height="432">
+            <h2>Khao Soi Beef</h2>
+            <p>price: 60 baht</p>
+            <a href="basket.html"></a>
+
+          </div>
+        </button>
+
+        <button class="menu-button"onclick="addToBasket('Mushroom curry', 35, 'แกงเห็ด.jpg')">
+          <div class="menu-item">
+
+            <img src="แกงเห็ด.jpg" alt="แกงเห็ด" width="640" height="432">
+            <h2>Mushroom curry</h2>
+            <p>price: 35 baht</p>
+            <a href="basket.html"></a>
+
+          </div>
+        </button>
+
+        <button class="menu-button"onclick="addToBasket('Hang Lay Curry', 70, 'แกฮังเล.jpg')">
+          <div class="menu-item">
+
+            <img src="แกฮังเล.jpg" alt="แกงฮังเล" width="640" height="432">
+            <h2>Hang Lay Curry</h2>
+            <p>price: 70 baht</p>
+            <a href="basket.html"></a>
+
+          </div>
+        </button>
+
+        <button class="menu-button"onclick="addToBasket('Steamed chicken rice', 45, 'ข้าวมันไก่.webp')">
+          <div class="menu-item">
+
+            <img src="ข้าวมันไก่.webp" alt="ข้าวมันไก่" width="640" height="432">
+            <h2>Steamed chicken rice  </h2>
+            <p>price: 45 baht</p>
+            <a href="basket.html"></a>
+
+          </div>
+        </button>
+
+        <button class="menu-button"onclick="addToBasket('Fried Chicken Rice', 45, 'ข้าวมันไก่ทอด.jpg')">
+          <div class="menu-item">
+
+            <img src="ข้าวมันไก่ทอด.jpg" alt="ข้าวมันไก่ทอด" width="640" height="432">
+            <h2>Fried Chicken Rice</h2>
+            <p>price: 45 baht</p>
+            <a href="basket.html"></a>
+
+          </div>
+        </button>
+
+        <button class="menu-button"onclick="addToBasket('Steamed chicken rice + Fried Chicken', 55, 'ข้าวมันไก่+ไก่ทอด.jpg')">
+          <div class="menu-item">
+
+            <img src="ข้าวมันไก่+ไก่ทอด.jpg" alt="ข้าวมันไก่+ไก่ทอด" width="640" height="432">
+            <h2>Steamed chicken rice + Fried Chicken</h2>
+            <p>price: 55 baht</p>
+            <a href="basket.html"></a>
+
+          </div>
+        </button>
+
+        <button class="menu-button"onclick="addToBasket('Grilled Chicken Rice', 45, 'ข้าวไก่ย่าง.jpg')">
+          <div class="menu-item">
+
+            <img src="ข้าวไก่ย่าง.jpg">
+            <h2>Grilled Chicken Rice</h2>
+            <p>price: 45 baht</p>
+            <a href="basket.html"></a>
+
+          </div>
+        </button>
+             
+        
+    </section>
+    <footer>
+         <a class="back-button" href="basket.html">Go to basket</a>
+         <a href="index.html"> Back </a>
+    </footer>
+    <script>
+      function addToBasket(productName, price,imagePath) {
+          // เก็บข้อมูลสินค้าที่ถูกเลือกไว้ใน localStorage
+    var basketItems = localStorage.getItem('basketItems') || '[]';
+    basketItems = JSON.parse(basketItems);
+    basketItems.push({ productName, price, imagePath });
+    localStorage.setItem('basketItems', JSON.stringify(basketItems));
+
+
+          // ลิ้งค์ไปยังหน้า basket.html
+          window.location.href = 'basket.html';
+      }
+  </script>
+
+</body>
+</html>

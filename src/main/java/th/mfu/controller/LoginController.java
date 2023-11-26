@@ -5,12 +5,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 =======
 >>>>>>> ec3cea9a31bf502861e0b8cf18eca0b79f5d5d02
+=======
+>>>>>>> refs/remotes/origin/main
 
 import th.mfu.controller.FoodController.UserService;
 import th.mfu.domain.User;
@@ -50,7 +53,11 @@ public class LoginController {
         } */
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> ec3cea9a31bf502861e0b8cf18eca0b79f5d5d02
+=======
+}
+>>>>>>> refs/remotes/origin/main

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>waiting- JIMMYFOOD</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fff; /* White background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height of the viewport */
+        }
+
+        .waiting-section {
+            background-color: #9D65CA; /* Purple color for the payment section */
+            border-radius: 40px; /* Rounded corners for the section */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for a card-like effect */
+            padding: 20px;
+            width: 500%; /* Adjust the width as needed */
+            max-width: 1000px; /* Set a maximum width if desired */
+            text-align: center;
+            color: #fff; /* Text color for better contrast */
+            position: relative; /* Relative positioning for the JIMMYFOOD text */
+        }
+
+        #jimmyfood-text img {
+            width: 50px; /* Adjust the width of the logo image */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 10px;
+        }
+
+        #jimmyfood-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        #mini-game-icon,
+        #house-icon,
+        #clock-icon,
+        #rider-icon {
+            width: 50px;
+            height: auto;
+        }
+
+        #food-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 30px; /* Rounded corners for the image */
+            margin-bottom: 10px;
+        }
+
+        #center-image {
+            width: 350px; /* Adjust the width of the center image as needed */
+            height: 350px; /* Make it a square */
+            margin: 20px 0; /* Adjust the margin as needed */
+            border: 5px solid #fff; /* Border for the center image */
+            border-radius: 15px; /* Rounded corners for the border */
+        }
+
+        .status-indicator {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .status {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .delivery-time,
+        .address {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .rider-contact {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rider-name {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .chat-button,
+        .call-button {
+            background-color: #fff;
+            color: #9D65CA;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="waiting-section">
+        <!-- Mini-game icon -->
+        <div id="mini-game-icon">
+            <img src="https://cdn.discordapp.com/attachments/1154074771164762223/1174335548828164136/20-transformed.png?ex=65673834&is=6554c334&hm=4bdf27f8404c3f4728072fcf429bdd3b9fd4b257dc18e696e5a39c4bd7143070&" alt="Mini Game Icon" height="30px" width="30px">
+        </div>
+
+        <div id="jimmyfood-text">
+            <img src="https://cdn.discordapp.com/attachments/1154074771164762223/1173981560123424778/11.png?ex=6565ee87&is=65537987&hm=2bff8dbe182bca8d37e7c52553e9aa912915cecb96fc209a2c7ba8625adc96be&" alt="JimmyFood Logo" width="50px" height="50px">
+            JIMMYFOOD
+        </div>
+
+        <!-- New image inside the purple rectangle -->
+        <img id="center-image" src="15.png" alt="Center Image">
+
+        <!-- Status Indicator -->
+        <div class="status-indicator">
+            <div class="status confirmed">Order Confirmed</div>
+            <div class="status preparing">Restaurant is preparing your order</div>
+            <div class="status coming">Order is coming to you</div>
+            <div class="status delivered">Order delivered</div>
+        </div>
+
+        <!-- Delivery Time -->
+        <div class="delivery-time">
+            <img id="clock-icon" src="11.png" alt="Clock Icon" height="25px" width="25px" style="margin-right: 10px;">
+            DELIVERY TIME: 12:45PM
+        </div>
+
+        <!-- Address -->
+        <div class="address">
+            <img id="house-icon" src="12.png" alt="House Icon" height="25px" width="25px" style="margin-right: 10px;">
+            DELIVERY ADDRESS: 12/34 Chiang Rai
+        </div>
+
+        <!-- Rider Contact -->
+        <div class="rider-contact">
+            <span class="rider-name">Your Rider Chayapon:</span>
+            <a href="#" class="chat-button">Chat</a>
+            <a href="#" class="call-button">Call</a>
+        </div>
+    </div>
+</body>
+
+</html>

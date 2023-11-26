@@ -7,4 +7,5 @@ import th.mfu.domain.Cart;
 public interface CartRepository extends JpaRepository<Cart, Long> {
   
     Object findAllById(Long id);
+
 }

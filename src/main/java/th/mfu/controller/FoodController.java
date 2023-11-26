@@ -76,6 +76,20 @@ public class UserController {
     }
 }
 
+<<<<<<< HEAD
+=======
+@Service
+    public class CartService{
+
+    @Autowired
+    private CartRepository cartRepo;
+
+    public void saveCart(Cart cart) {
+        cartRepo.save(cart);
+    }
+}
+    //UserService.java
+>>>>>>> refs/remotes/origin/main
     @Service
     public class UserService{
     @Autowired
@@ -123,31 +137,7 @@ public String showItems(@PathVariable Long id, Model model) {
     }
 }
 
-// to add items to the cart
-@GetMapping("/user-add-food/{id}")
-public String addToCart(@PathVariable Long id, Model model) {
-    model.addAttribute("cartItem", new Item());
-    Item item = itemRepo.findById(id).orElse(null);
-    if (item != null) {
-        // Fetch user from session or database
-        User user = userRepo.findById(userId).orElse(null); // Replace userId with the actual ID or parameter
-        if (user != null) {
-            user.getCartItems().add(item);
-            userRepo.save(user);
-        }
-    }
-    return "redirect:/";
-}
 
-    // to view carttt
-    @GetMapping("/view-cart/{id}")
-    public String viewCart(@PathVariable Long id, Model model) {
-        User cartUser = userRepo.findById(id).orElse(null);
-        if (cartUser != null && cartUser.getCartItems() != null) {
-            model.addAttribute("cartItems", cartUser.getCartItems());
-        }
-        return "view-cart";
-    }
 
     // to make payment (to move items from cart to order)
 /* @GetMapping("/make-order/{id}")
