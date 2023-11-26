@@ -91,9 +91,6 @@
             document.body.style.backgroundSize = 'cover';
             document.body.style.backgroundRepeat = 'no-repeat';
         });
-            function redirectToUserPersona() {
-            window.location.href = "userPersona.html";
-    }
     </script>
 </head>
 <body>
@@ -103,26 +100,21 @@
         <img src="logo.png" alt="logo">
 
         <!-- Display the login failed message if it exists -->
-        
+        <p th:if="${loginFailed}" class="login-message">Incorrect username or password!</p>
         <!-- You can style the message using CSS -->
         <style>
             .login-message {
                 color: red; /* Set the color based on success or failure */
             }
         </style>
-        
-        <form action="/login" method="post" onsubmit="redirectToUserPersona(); return false;">
+
+        <form action="/login" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
-<<<<<<<< HEAD:src/main/resources/public/tremplate/login.html
-           
-            <button type="submit" class="button">Log in</button>
-========
             
             <button class="btn" >Login</button>
->>>>>>>> refs/remotes/origin/main:src/main/resources/template/login.html
         </form>
-        
+
         <!--  <button type="submit">Login</button> -->
         
     </div>

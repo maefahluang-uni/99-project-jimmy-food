@@ -107,22 +107,4 @@ public class User {
         this.password = password;
     }
 
-<<<<<<< HEAD
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
-
-    public List<Item> getCartItems() {
-        return cartItems;
-    }
-
-    public void setCartItems(List<Item> cartItems) {
-        this.cartItems = cartItems;
-    }
-=======
->>>>>>> refs/remotes/origin/main
 }

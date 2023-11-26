@@ -76,8 +76,6 @@ public class UserController {
     }
 }
 
-<<<<<<< HEAD
-=======
 @Service
     public class CartService{
 
@@ -89,7 +87,6 @@ public class UserController {
     }
 }
     //UserService.java
->>>>>>> refs/remotes/origin/main
     @Service
     public class UserService{
     @Autowired

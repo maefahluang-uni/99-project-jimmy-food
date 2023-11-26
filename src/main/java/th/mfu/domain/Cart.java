@@ -19,19 +19,11 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-<<<<<<< HEAD
-    private Long orderId;
-    private String name;
-=======
->>>>>>> refs/remotes/origin/main
     private int quantity;
     private int total_price;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
     private List<Item> items = new ArrayList<>();
-
-
-
 
     // Constructors
 
@@ -40,16 +32,9 @@ public class Cart {
     }
 
     // Parameterized constructor
-<<<<<<< HEAD
-    public Cart(String name, int quantity, Long orderId) {
-        this.name = name;
-        this.quantity = quantity;
-        this.orderId = orderId;
-=======
     public Cart( int quantity, int total_price) {
         this.quantity = quantity;
         this.total_price = total_price;
->>>>>>> refs/remotes/origin/main
     }
 
     // Getters and setters
@@ -68,14 +53,6 @@ public class Cart {
 
     public void setId(Long id) {
         this.id = id;
-    }
-    
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
     }
 
     public int getQuantity() {
