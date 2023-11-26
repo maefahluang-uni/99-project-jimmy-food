@@ -23,4 +23,4 @@ We developed a food delivery application for the convenience of users who come t
    - เลือกที่อยู่
    - กดconfirm
 3. User waiting order ที่กดสั่งไป
-   - User สามารถ chat/call กับ Riderได้ระหว่างที่รออาหาร
+   - User สามารถ chat/call กับ Riderได้ระหว่างที่รออาหาร.
