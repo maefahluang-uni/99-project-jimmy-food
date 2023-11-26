@@ -9,6 +9,54 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+<script>
+    function submitReview(event) {
+        event.preventDefault(); // ป้องกันการรีโหลดหน้าเว็บ
+        var reviewerName = document.getElementById('reviewerName').value;
+        var reviewerEmail = document.getElementById('reviewerEmail').value;
+        var reviewMessage = document.getElementById('reviewMessage').value;
+
+        // URL ของรูปภาพที่จะแสดง
+        var imageUrl = "ตุ้กตา.png";
+
+        // สร้าง element สำหรับแสดงรีวิวใน swiper-slide
+        var reviewContainer = document.querySelector('.swiper-wrapper');
+        var newReview = document.createElement('div');
+        newReview.className = 'swiper-slide slide';
+        newReview.innerHTML = `
+            <img src="${imageUrl}" alt="">
+            <h3>${reviewerName}</h3>
+            <p>${reviewMessage}</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        `;
+
+        // เพิ่มรีวิวใหม่ลงใน swiper-slide
+        reviewContainer.appendChild(newReview);
+
+        // รีเซ็ตค่าในฟอร์ม
+        document.getElementById('reviewerName').value = '';
+        document.getElementById('reviewerEmail').value = '';
+        document.getElementById('reviewMessage').value = '';
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var mySwiper = new Swiper('.review-slider', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+    });
+</script>
 
 
      <!-- font awesome cdn link  -->
@@ -31,47 +79,16 @@
             font-size: 35px; 
             text-decoration: none; 
         }
+
     </style>
 
     <form action="" class="search-form">
     
-        <input type="search" name="" placeholder="Searching for what you looking for" id="searchBox" >
+        <input type="search" name="" placeholder="Searching for what you looking for" id="searchBox">
         <label for="searchBox" class="fas fa-search"></label>
         
     </form>
     <style>
-        .header {
-           display: flex;
-           align-items: center;
-           justify-content: space-between; /* จัดตำแหน่งให้อยู่ทางด้านขวา */
-        }
-
-        #searchBox {
-            margin-right: 8px;
-        } 
-
-        #proImage {
-            width: 50px;
-            height: auto;
-            margin-right: 8px; /* ระยะห่างระหว่างรูปและข้อความ */
-        }
-
-        #searchBox {
-           margin-right: 8px;
-           display: block;
-        }
-
-        .proContainer {
-           display: flex;
-           align-items: center;
-        }
-
-        .proText {
-           font-size: 14px; /* ปรับขนาดข้อความตามต้องการ */
-           color: #000000; /* สีข้อความ */
-           margin:0;
-        }
-  
         a {
             color: #ede6e6; /* Change this to your desired color code or name */
             text-decoration: none; /* Remove underlines by default */
@@ -81,12 +98,9 @@
             text-decoration: underline; /* Add underlines on hover */
         }
     </style>
-   
-    <a href="userPersona.html?name=-" class="proContainer">
-    <img src="pro1_2.png" alt="" id="proImage">
-    <span class="proText" id="name">-</span>
-    </a>
-    
+    <a href="signup.html">Sign Up </a>
+    <a href="login.html">Log In</a>
+        <p style="font-size: 120px;"></p>
 </header>
 
 <!-- header section ends -->
@@ -109,7 +123,7 @@
 
     </div>
     <div class="image" data-aos="fade-down">
-    <img src="landing.jpg" alt="" width = "1080px" height="1000px">
+    <img src="landing.jpg" alt="1" width = "1080px" height="1000px">
         
         
     </div>
@@ -415,23 +429,22 @@
 <!-- contact section starts  -->
 
 <section class="contact" id="contact">
+    <h1 class="heading"> <span>Review</span> Here</h1>
 
-    <h1 class="heading"> <span>contact</span> us </h1>
-
-    <form action="" data-aos="zoom">
+    <form action="" data-aos="zoom" onsubmit="submitReview(event)">
 
         <div class="inputBox">
-            <input type="text" placeholder="name" data-aos="fade-up">
-            <input type="email" placeholder="email" data-aos="fade-up">
+            <input type="text" placeholder="name" id="reviewerName" data-aos="fade-up">
+            <input type="email" placeholder="email" id="reviewerEmail" data-aos="fade-up">
         </div>
 
-        <textarea name="" placeholder="your message" id="" cols="30" rows="10" data-aos="fade-up"></textarea>
+        <textarea name="reviewMessage" placeholder="your message" id="reviewMessage" cols="30" rows="10" data-aos="fade-up"></textarea>
         
         <input type="submit" value="send message" class="btn">
 
     </form>
-
 </section>
+
 
 <!-- contact section ends -->
 
@@ -523,8 +536,8 @@
         <div class="box" data-aos="fade-up">
             <h3>our branches</h3>
             <a href="foodmain.html"> <i class="fas fa-hamburger"></i> FOOD </a>
-            <a href="#"> <i class="fas fa-cocktail"></i> DRINKS </a>
-            <a href="#"> <i class="fas fa-bread-slice"></i> BAKERY </a>
+            <a href="drinks.html"><i class="fas fa-cocktail"></i> DRINKS </a>
+            <a href="bakery.html"> <i class="fas fa-bread-slice"></i> BAKERY </a>
             <a href="minigame/game.html"> <i class="fas fa-gamepad"></i> MINI GAMES </a> 
         </div>
 

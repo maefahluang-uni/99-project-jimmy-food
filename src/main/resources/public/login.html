@@ -99,14 +99,6 @@
         <h2>Login</h2>
         <img src="logo.png" alt="logo">
 
-        <!-- Display the login failed message if it exists -->
-        <p th:if="${loginFailed}" class="login-message">Incorrect username or password!</p>
-        <!-- You can style the message using CSS -->
-        <style>
-            .login-message {
-                color: red; /* Set the color based on success or failure */
-            }
-        </style>
 
         <form action="/login" method="post">
             <input type="text" name="username" placeholder="Username" required>
