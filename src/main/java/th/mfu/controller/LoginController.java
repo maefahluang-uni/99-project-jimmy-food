@@ -4,16 +4,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+=======
+>>>>>>> ec3cea9a31bf502861e0b8cf18eca0b79f5d5d02
 
 import th.mfu.controller.FoodController.UserService;
 import th.mfu.domain.User;
 import th.mfu.repository.UserRepository;
 
-@RestController
+@Controller
 public class LoginController {
 
     @Autowired
@@ -33,18 +36,21 @@ public class LoginController {
     public String login(@ModelAttribute User user, Model model) {
         // Find the user by username
         User existingUser = userRepo.findByUsername(user.getUsername());
-
         // Check if the user exists and the password is correct (without encryption)
         if (existingUser != null && user.getPassword().equals(existingUser.getPassword())) {
-        return "userPersona";
-            //return "userPersona";
+        return "redirect:/userPersona.html";
+            
         } else {
         // Add a failure message to the model
         model.addAttribute("loginFailed", true);
-        return "login"; // Render the login page
+        return "redirect:/login.html"; // Render the login page
         }
        /*  model.addAttribute("loginMessage", "Login failed");
         return "login-failed";
         } */
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ec3cea9a31bf502861e0b8cf18eca0b79f5d5d02

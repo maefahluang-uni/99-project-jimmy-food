@@ -16,10 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import th.mfu.domain.Cart;
 import th.mfu.domain.Item;
-import th.mfu.domain.Order;
 import th.mfu.domain.User;
+import th.mfu.repository.CartRepository;
 import th.mfu.repository.ItemRepository;
-import th.mfu.repository.OrderRepository;
 import th.mfu.repository.RestaurantRepository;
 import th.mfu.repository.UserRepository;
 
@@ -34,15 +33,8 @@ public class FoodController {
 
     @Autowired
     private ItemRepository itemRepo;
-
-    @Autowired
-    private OrderRepository orderRepo;
     
     private Long userId;
-
-    private Order order;
-
-    private List<Cart> orderItems;
 
 @RestController
 @RequestMapping("/api/users")
@@ -69,6 +61,18 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
+    }
+}
+
+
+    // OrderItemService.java
+    @Service
+    public class OrderItemService {
+    @Autowired
+    private CartRepository orderItemRepository;
+
+    public void saveOrderItem(Cart orderItem) {
+        orderItemRepository.save(orderItem);
     }
 }
 
